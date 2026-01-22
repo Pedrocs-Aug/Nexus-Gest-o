@@ -1,0 +1,271 @@
+/* Importando fonte moderna */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --cor-primaria: #e81d1d;
+    --cor-primaria-dark: #b31414;
+    --cor-dark: #2c343a;
+    --cor-bg: #f8f9fa;
+    --cor-card: #ffffff;
+    --cor-texto: #333333;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background-color: var(--cor-bg);
+    color: var(--cor-texto);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Evita scroll na estrutura principal */
+}
+
+/* Header */
+.cabecalho {
+    background-color: var(--cor-dark);
+    color: white;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.cabecalho h1 {
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.cabecalho p {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* Layout Principal */
+.container-principal {
+    display: flex;
+    flex: 1; /* Ocupa o restante da tela abaixo do header */
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    background: linear-gradient(180deg, var(--cor-primaria) 0%, var(--cor-primaria-dark) 100%);
+    width: 240px;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.logo {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    background: white;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-nav {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-nav:hover {
+    background-color: var(--cor-dark);
+    transform: translateX(8px);
+}
+
+/* Dashboard / Cards */
+.dashboard {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #f0f2f5;
+    overflow-y: auto; /* Permite rolar os cards se houver muitas linhas */
+}
+
+.cards-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 25px;
+    flex-wrap: wrap; /* Permite quebrar linha se necessário */
+}
+
+.card {
+    background-color: var(--cor-card);
+    flex: 1;
+    min-width: 220px;
+    max-width: 23%;
+    height: 180px; /* Altura fixa para manter simetria */
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Importante para a legenda absoluta */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    padding: 20px;
+    text-decoration: none;
+    border: 1px solid rgba(0,0,0,0.05);
+    height: 250px;
+}
+
+.card img {
+    max-width: 80%;
+    max-height: 70%;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--cor-primaria);
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+/* Legendas dos Cards */
+.legend {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--cor-dark);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+/* Estilo para cards vazios */
+.card.empty, .card:not([href]) {
+    opacity: 0.4;
+    filter: grayscale(1);
+    cursor: not-allowed;
+    background-color: #e9ecef;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+    .sidebar { width: 200px; }
+    .card { max-width: 30%; }
+}
+
+@media (max-width: 768px) {
+    .container-principal {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 60px;
+    }
+
+    .menu {
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .btn-nav {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .dashboard {
+        width: 100vw;
+        padding: 20px;
+    }
+
+    .card {
+        max-width: 46%; /* 2 cards por linha */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        max-width: 100%; /* 1 card por linha */
+    }
+    
+    .menu {
+        display: none; /* Esconde menu no celular muito pequeno */
+    }
+}
+
+/* Estilização do Rodapé na Sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content:沟通; /* Isso ajuda a empurrar o conteúdo */
+}
+
+.rodape-sidebar {
+    margin-top: auto; /* Empurra o rodapé para o final da sidebar */
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.rodape-sidebar p {
+    color: white;
+    font-size: 0.7rem;
+    line-height: 1.4;
+    opacity: 0.7;
+    font-weight: 400;
+}
+
+/* Esconder rodapé na impressão para não sujar o documento A4 */
+@media print {
+    .rodape-sidebar {
+        display: none !important;
+    }
+}
+
+/* Ajuste para Mobile */
+@media (max-width: 900px) {
+    .rodape-sidebar {
+        display: none; /* Geralmente ocultamos na barra horizontal do mobile */
+    }
+}
