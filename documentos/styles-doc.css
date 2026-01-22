@@ -283,7 +283,7 @@ body {
     transition: var(--transition);
     position: absolute;
     bottom: -60px;
-    left: 40%;
+    left: 38%;
 }
 
 .btn-imprimir:hover {
