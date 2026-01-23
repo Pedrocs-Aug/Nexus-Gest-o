@@ -156,7 +156,7 @@ body {
 /* Legendas dos Cards */
 .legend {
     position: absolute;
-    bottom: 12px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--cor-dark);
@@ -252,6 +252,9 @@ body {
     max-height: 80%;
     text-align: center;
     position: relative;
+    display: flex;       /* Adicionado */
+    flex-direction: column; /* Adicionado */
+    align-items: center;    /* Centraliza horizontalmente todos os filhos */
 }
 
 .modal-conteudo img {
@@ -281,9 +284,7 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: var(--transition);
-    position: absolute;
-    bottom: -60px;
-    left: 38%;
+    position: static; /* Altera de absolute para static */
 }
 
 .btn-imprimir:hover {
