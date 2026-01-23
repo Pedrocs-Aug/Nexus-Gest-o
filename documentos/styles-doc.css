@@ -162,12 +162,22 @@ body {
     background-color: var(--cor-dark);
     color: white;
     padding: 4px 12px;
-    border-radius: 20px;
+    border-radius: 15px;
     font-size: 0.75rem;
     font-weight: 600;
     white-space: nowrap;
-    opacity: 0.9;
+    
+    /* Alteração aqui: começa invisível */
+    opacity: 0; 
     pointer-events: none;
+    transition: var(--transition); /* Adiciona suavidade na aparição */
+}
+
+/* Ação contrária: Mostra ao passar o mouse no CARD */
+.card:hover .legend {
+    opacity: 1;
+    bottom: 20px; /* Opcional: um leve movimento para cima ao aparecer */
+    z-index: 5;
 }
 
 /* Estilo para cards vazios */
