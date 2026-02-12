@@ -1,0 +1,99 @@
+/* Sidebar Padronizada - Nexus Gestão */
+.sidebar {
+    background: linear-gradient(180deg, var(--cor-primaria) 0%, var(--cor-primaria-dark) 100%);
+    width: 250px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Garante que o conteúdo comece sempre do topo */
+    padding: 1.5rem;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+/* Container do Logo para garantir margem fixa no topo */
+.logo {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    background: white;
+    transition: var(--transition);
+    margin-top: 0; /* Alinhamento fixo no topo */
+    margin-bottom: 20px; /* Espaço consistente antes do menu */
+}
+
+.logo:hover {
+    transform: scale(1.03);
+}
+
+.menu {
+    flex: 1; /* Faz o menu ocupar o espaço restante */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-nav {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-nav:hover {
+    background-color: var(--cor-dark);
+    transform: translateX(8px);
+}
+
+/* Rodapé da Sidebar - Sempre no final */
+.rodape-sidebar {
+    margin-top: auto; /* Empurra para o fundo independente do tamanho do menu */
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.rodape-sidebar p {
+    color: white;
+    font-size: 0.7rem;
+    line-height: 1.4;
+    opacity: 0.7;
+    font-weight: 400;
+}
+
+/* Responsividade Unificada (768px para Tablets e Mobile) */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    .logo {
+        width: 60px;
+        margin-bottom: 0;
+    }
+
+    .menu {
+        flex-direction: row;
+        flex: none;
+        gap: 8px;
+    }
+
+    .btn-nav {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .rodape-sidebar {
+        display: none;
+    }
+}
