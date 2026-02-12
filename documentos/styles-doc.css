@@ -13,13 +13,10 @@
 
 body {
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-    background-color: var(--cor-bg);
-    color: var(--cor-texto);
     height: 100vh;
-    width: 100vw;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Evita scroll na estrutura principal */
+    overflow: hidden; /* Garante que nada saia do corpo */
 }
 
 /* Header */
@@ -29,7 +26,6 @@ body {
     padding: 1.2rem;
     text-align: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    z-index: 10;
 }
 
 .cabecalho h1 {
@@ -47,21 +43,20 @@ body {
 /* Layout Principal */
 .container-principal {
     display: flex;
-    flex: 1; /* Ocupa o restante da tela abaixo do header */
-    width: 100vw;
-    overflow: hidden;
+    flex: 1; /* Ocupa todo o espaço entre o header e o final da tela */
+    height: 0; /* Truque de Flexbox para forçar os filhos a respeitarem o limite */
+    min-height: 0;
 }
 
 /* Sidebar */
 .sidebar {
     background: linear-gradient(180deg, var(--cor-primaria) 0%, var(--cor-primaria-dark) 100%);
-    width: 240px;
-    padding: 25px 15px;
+    width: 250px;
+    height: 100%; /* Ocupa 100% da área do container-principal */
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-    z-index: 10;
+    padding: 1.5rem;
+    flex-shrink: 0; /* Impede que a sidebar "esmague" no zoom */
 }
 
 .logo {
@@ -74,13 +69,12 @@ body {
 
 .logo:hover {
     transform: scale(1.03);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .menu {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    flex: 1; /* Ocupa o espaço central */
+    gap: 15px;
+    padding: 15px;
 }
 
 .btn-nav {
@@ -93,6 +87,7 @@ body {
     text-align: center;
     font-weight: 600;
     transition: var(--transition);
+    margin: 5px 0;
 }
 
 .btn-nav:hover {

@@ -19,11 +19,19 @@
     border-color: var(--cor-primaria);
 }
 
+.data-table-title{
+    background-color: var(--cor-dark);
+    color: #fff;
+    font-size: 1.1rem;
+}
+
 .data-table-wrapper {
     background: var(--cor-card);
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    overflow: hidden;
+    max-height: 500px; /* Define a altura máxima antes de aparecer o scroll */
+    overflow-y: auto;  /* Ativa o scroll vertical apenas quando necessário */
+    overflow-x: hidden; /* Evita scroll horizontal indesejado */
 }
 
 .data-table {
@@ -32,9 +40,12 @@
     font-size: 0.9rem;
 }
 
+/* Deixa o cabeçalho fixo no topo enquanto você rola a lista */
 .data-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
     background-color: var(--cor-dark);
-    color: white;
 }
 
 .data-table th, .data-table td {
