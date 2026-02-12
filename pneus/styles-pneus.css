@@ -1,0 +1,61 @@
+/* Estilos integrados ao Nexus Gestão */
+.dashboard {
+    overflow-y: auto; /* Permite rolar a tabela sem mover o menu */
+    padding: 20px;
+}
+
+.search-box {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.search-box:focus {
+    border-color: var(--cor-primaria);
+}
+
+.data-table-wrapper {
+    background: var(--cor-card);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.data-table thead {
+    background-color: var(--cor-dark);
+    color: white;
+}
+
+.data-table th, .data-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.data-table tbody tr:hover {
+    background-color: #fff5f5; /* Leve destaque com a cor primária */
+}
+
+.marca-destaque {
+    color: var(--cor-primaria);
+    font-weight: bold;
+}
+
+/* Responsividade para a tabela */
+@media (max-width: 768px) {
+    .data-table th:nth-child(2), 
+    .data-table td:nth-child(2) {
+        display: none; /* Esconde coluna veículo em telas pequenas */
+    }
+}

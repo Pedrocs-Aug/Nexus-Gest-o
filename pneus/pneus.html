@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Gestão | Catálogo de Pneus</title>
+    <link rel="icon" type="image/png" href="./img/nexus_logo.png">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="./styles-pneus.css">
+   
+    
+</head>
+<body>
+    <header class="cabecalho">
+        <h1>NEXUS</h1>
+        <p>gestão</p>
+    </header>
+
+    <main class="container-principal">
+        <nav class="sidebar">
+            <img src="../img/nexus_logo.png" alt="Nexus Logo" class="logo">
+            <ul class="menu">
+                <li><a href="../index.html" class="btn-nav">Início</a></li>
+                <li><a href="../sobre/sobre.html" class="btn-nav">Sobre</a></li>
+                <li><a href="#" class="btn-nav">Serviços</a></li>
+                <li><a href="#" class="btn-nav">Contato</a></li>
+            </ul>
+            <footer class="rodape-sidebar">
+                <p>&copy; 2026 Nexus Gestão.</p>
+                <p>Desenvolvido por Pedro Augusto</p>
+            </footer>
+        </nav>
+
+        <section class="dashboard">
+            <div class="apresentacao-tabela">
+                <h2 style="color: var(--cor-dark); margin-bottom: 10px;">Catálogo de Pneus</h2>
+                <input type="text" id="inputBusca" class="search-box" placeholder="Pesquisar por medida, marca ou veículo...">
+            </div>
+
+            <div class="data-table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Marca</th>
+                            <th>Veículo</th>
+                            <th>Medida / Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabela">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="script-tabela.js"></script>
+</body>
+</html>
