@@ -26,11 +26,13 @@
     transform: scale(1.03);
 }
 
+/* Ajuste no Menu para aproximar os botões */
 .menu {
-    flex: 1; /* Faz o menu ocupar o espaço restante */
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 8px;       /* Reduzido de 15px para 8px */
+    padding: 10px;  /* Reduzido para não empurrar muito os botões para dentro */
 }
 
 .btn-nav {
@@ -38,11 +40,12 @@
     background-color: rgba(0, 0, 0, 0.2);
     color: white;
     text-decoration: none;
-    padding: 14px;
+    padding: 10px;  /* Reduzido de 14px para 10px para um botão mais "slim" */
     border-radius: 10px;
     text-align: center;
     font-weight: 600;
     transition: var(--transition);
+    margin: 0;      /* Remove margens externas que podem estar separando os botões */
 }
 
 .btn-nav:hover {
