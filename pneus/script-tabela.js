@@ -72,9 +72,13 @@ function renderizarTabela(filtro = "") {
     const corpoTabela = document.getElementById('corpoTabela');
     corpoTabela.innerHTML = ""; 
 
+    const termoBusca = filtro.toLowerCase();
+
     const filtrados = dadosPneus.filter(item => 
-        item.codigo.toLowerCase().includes(filtro.toLowerCase()) ||
-        item.marca.toLowerCase().includes(filtro.toLowerCase())
+        item.codigo.toLowerCase().includes(termoBusca) ||
+        item.marca.toLowerCase().includes(termoBusca) ||
+        item.veiculo.toLowerCase().includes(termoBusca) ||
+        item.desc.toLowerCase().includes(termoBusca) // Agora busca por medida/descrição também
     );
 
     filtrados.forEach(item => {
