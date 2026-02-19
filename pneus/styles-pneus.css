@@ -159,13 +159,14 @@
 .bloco-etiqueta {
     text-align: center;
     width: 100%;
-    flex: 1;
+    height: 25%; /* Cada uma ocupa exatamente um quarto da folha */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     border-bottom: 1px dashed #aaa;
+    box-sizing: border-box;
 }
-
 .bloco-etiqueta:last-child {
     border-bottom: none;
 }
@@ -195,13 +196,96 @@
    CONFIGURAÇÃO DE IMPRESSÃO
    ============================================================ */
 @media print {
-    body * { visibility: hidden; }
-    #modal-etiqueta, #modal-etiqueta *, #area-impressao, #area-impressao * {
+    /* Força o navegador a ignorar margens de sistema */
+    @page {
+        size: A4;
+        margin: 0 !important;
+    }
+
+    /* Limpeza total do ambiente de impressão */
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 297mm !important;
+        width: 210mm !important;
+        overflow: hidden !important;
+    }
+
+    body * {
+        display: none !important;
+    }
+
+    /* Ativa apenas o necessário */
+    #modal-etiqueta, 
+    #modal-etiqueta .modal-conteudo, 
+    #area-impressao, 
+    #area-impressao * {
+        display: flex !important;
         visibility: visible !important;
     }
-    .modal { position: absolute; left: 0; top: 0; background: white; }
-    .folha-a4 { transform: scale(1) !important; margin: 0 !important; box-shadow: none !important; }
-    .btn-imprimir, .fechar { display: none !important; }
+
+    .modal {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        background: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .modal-conteudo {
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    /* A FOLHA A4 - O Contentor principal */
+    .folha-a4 {
+        width: 210mm !important;
+        height: 297mm !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        transform: scale(1) !important;
+        box-shadow: none !important;
+    }
+
+    /* CADA ETIQUETA - Altura fixa matemática */
+    .bloco-etiqueta {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        /* 297 / 4 = 74.25mm. Usamos 74mm para ter 1mm de folga total e evitar a 2ª página */
+        height: 74mm !important; 
+        max-height: 74mm !important;
+        min-height: 74mm !important;
+        border-bottom: 1px dashed #000 !important;
+        box-sizing: border-box !important;
+        page-break-inside: avoid !important;
+    }
+
+    .bloco-etiqueta:last-child {
+        border-bottom: none !important;
+    }
+
+    /* Ajuste de escala dos textos para não transbordar os 74mm */
+    .codigo-grande {
+        font-size: 60pt !important;
+        margin: 0 !important;
+        line-height: 1.1 !important;
+    }
+
+    .descricao-pneu {
+        font-size: 16pt !important;
+        margin-top: 5mm !important;
+    }
 }
 
 /* Notificação Flutuante (Toast) */
