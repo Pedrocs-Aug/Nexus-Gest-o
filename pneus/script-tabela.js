@@ -70,15 +70,15 @@ const dadosPneus = [
 
 function renderizarTabela(filtro = "") {
     const corpoTabela = document.getElementById('corpoTabela');
-    corpoTabela.innerHTML = ""; 
+    corpoTabela.innerHTML = "";
 
     const termoBusca = filtro.toLowerCase();
 
-    const filtrados = dadosPneus.filter(item => 
+    const filtrados = dadosPneus.filter(item =>
         item.codigo.toLowerCase().includes(termoBusca) ||
         item.marca.toLowerCase().includes(termoBusca) ||
         item.veiculo.toLowerCase().includes(termoBusca) ||
-        item.desc.toLowerCase().includes(termoBusca) // Agora busca por medida/descrição também
+        item.desc.toLowerCase().includes(termoBusca)
     );
 
     filtrados.forEach(item => {
@@ -87,9 +87,17 @@ function renderizarTabela(filtro = "") {
             <td>
                 <a href="javascript:void(0)" 
                    onclick="abrirModalEtiqueta('${item.codigo}', '${item.desc}')" 
-                   style="color: #2c343a; font-weight: bold; text-decoration: underline;">
+                   class="codigo-link">
                    ${item.codigo}
                 </a>
+            </td>
+            <td class="coluna-acao">
+                <button class="btn-copiar" onclick="copiarTexto('${item.codigo}', this)" title="Copiar código">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
             </td>
             <td><strong style="color: var(--cor-primaria);">${item.marca}</strong></td>
             <td>${item.veiculo}</td>
@@ -99,21 +107,41 @@ function renderizarTabela(filtro = "") {
     });
 }
 
+function copiarTexto(texto, elemento) {
+    navigator.clipboard.writeText(texto).then(() => {
+        // 1. Feedback visual no ícone (fica verde)
+        const originalColor = elemento.style.color;
+        elemento.style.color = "#28a745";
+        
+        // 2. Exibir a notificação flutuante (Toast)
+        const toast = document.getElementById('toast-container');
+        toast.classList.add('mostrar');
+
+        // 3. Remover feedback e esconder notificação após 2 segundos
+        setTimeout(() => {
+            elemento.style.color = originalColor;
+            toast.classList.remove('mostrar');
+        }, 2000);
+        
+    }).catch(err => {
+        console.error('Erro ao copiar: ', err);
+    });
+}
+
 function abrirModalEtiqueta(codigo, descricao) {
     const modal = document.getElementById('modal-etiqueta');
     const area = document.getElementById('area-impressao');
-    
-    // Gera 4 repetições conforme sua imagem de referência
+
     let conteudo = '';
-    for(let i = 0; i < 4; i++) {
+    for (let i = 0; i < 4; i++) {
         conteudo += `
             <div class="bloco-etiqueta">
-                <h1>${codigo}</h1>
-                <p>PNEU ${descricao.toUpperCase()}</p>
+                <h1 class="codigo-grande">${codigo}</h1>
+                <p class="descricao-pneu">PNEU ${descricao.toUpperCase()}</p>
             </div>
         `;
     }
-    
+
     area.innerHTML = conteudo;
     modal.style.display = 'flex';
 }

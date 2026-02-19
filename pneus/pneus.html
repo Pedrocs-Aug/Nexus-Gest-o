@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <div id="toast-container" class="toast-container">Copiado</div>
     <header class="cabecalho">
         <h1>NEXUS</h1>
         <p>gestão</p>
@@ -48,10 +49,12 @@
                     <thead>
                         <tr class="data-table-title">
                             <th>Código</th>
+                            <th style="width: 50px;"></th>
                             <th>Marca</th>
                             <th>Veículo</th>
                             <th>Medida / Descrição</th>
                         </tr>
+                    </thead>
                     </thead>
                     <tbody id="corpoTabela">
                     </tbody>
@@ -67,7 +70,7 @@
             <button class="btn-imprimir" onclick="window.print()">Imprimir Etiqueta</button>
         </div>
     </div>
-    <script src="script-tabela.js"></script>
+    <script src="./script-tabela.js"></script>
 </body>
 
 </html>

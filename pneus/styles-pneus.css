@@ -1,6 +1,10 @@
-/* Estilos integrados ao Nexus Gestão */
+/* ============================================================
+   ESTILOS GERAIS E DASHBOARD
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 .dashboard {
-    overflow-y: auto; /* Permite rolar a tabela sem mover o menu */
+    overflow-y: auto;
     padding: 20px;
 }
 
@@ -19,7 +23,7 @@
     border-color: var(--cor-primaria);
 }
 
-.data-table-title{
+.data-table-title {
     background-color: var(--cor-dark);
     color: #fff;
     font-size: 1.1rem;
@@ -29,9 +33,9 @@
     background: var(--cor-card);
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    max-height: 500px; /* Define a altura máxima antes de aparecer o scroll */
-    overflow-y: auto;  /* Ativa o scroll vertical apenas quando necessário */
-    overflow-x: hidden; /* Evita scroll horizontal indesejado */
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .data-table {
@@ -40,7 +44,6 @@
     font-size: 0.9rem;
 }
 
-/* Deixa o cabeçalho fixo no topo enquanto você rola a lista */
 .data-table thead {
     position: sticky;
     top: 0;
@@ -52,186 +55,179 @@
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle; /* Alinhamento vertical garantido */
 }
 
-.data-table tbody tr:hover {
-    background-color: #fff5f5; /* Leve destaque com a cor primária */
-}
-
-.marca-destaque {
-    color: var(--cor-primaria);
+/* Coluna do código */
+.codigo-link {
+    color: #2c343a;
     font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
-/* Responsividade para a tabela */
-@media (max-width: 768px) {
-    .data-table th:nth-child(2), 
-    .data-table td:nth-child(2) {
-        display: none; /* Esconde coluna veículo em telas pequenas */
-    }
+/* Coluna de Ação (Copiar) */
+.coluna-acao {
+    width: 50px;
+    text-align: center !important;
+    padding: 15px 5px !important;
+}
+
+.btn-copiar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.btn-copiar:hover {
+    color: var(--cor-primaria);
+    background-color: #f8f8f8;
+    transform: scale(1.1);
 }
 
 /* ============================================================
-   ESTILO DO MODAL (Copiado do padrão styles-doc.css)
+   ESTILO DO MODAL E FOLHA A4
    ============================================================ */
 .modal {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: fixed;
-    z-index: 9999; /* Fica acima de tudo */
+    z-index: 9999;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro padrão */
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px); /* Efeito de desfoque opcional */
+    background-color: rgba(0, 0, 0, 0.85);
+    overflow-y: auto;
+    padding: 20px 0;
 }
 
 .modal-conteudo {
-    position: relative;
-    background-color: #333; /* Fundo cinza escuro para destacar o papel A4 */
-    padding: 40px;
-    width: 90%;
-    max-width: 900px;
-    max-height: 90vh;
-    overflow-y: auto;
-    border-radius: 8px;
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+    width: 100%;
 }
 
-/* Estilo da "Folha" dentro do modal */
 .folha-a4 {
     background: white;
-    width: 210mm; 
-    min-height: 297mm;
-    padding: 20mm;
-    margin-bottom: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    width: 210mm;
+    height: 297mm;
+    padding: 10mm;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    transform: scale(0.8); /* Ajusta para caber na visão do monitor */
+    justify-content: space-between;
+    transform: scale(0.7); 
     transform-origin: top center;
+    margin-bottom: -80mm;
 }
 
-/* Botão de Fechar Estilizado */
 .fechar {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    color: #fff;
-    font-size: 35px;
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
     font-weight: bold;
     cursor: pointer;
-    transition: var(--transition);
 }
 
-.fechar:hover {
-    color: var(--cor-primaria);
-}
-
-/* Botão de Imprimir Estilizado */
 .btn-imprimir {
-    background-color: var(--cor-primaria);
+    background-color: #e31d1a;
     color: white;
     border: none;
-    padding: 12px 25px;
-    border-radius: 5px;
+    padding: 15px 40px;
+    border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    transition: var(--transition);
-    margin-top: 10px;
-}
-
-.btn-imprimir:hover {
-    background-color: var(--cor-primaria-dark);
-    transform: scale(1.05);
+    font-size: 1.2rem;
+    margin-top: 20px;
 }
 
 /* ============================================================
-   AJUSTES PARA IMPRESSÃO (Copiado do padrão styles-doc.css)
+   ESTILO DAS ETIQUETAS
    ============================================================ */
-@media print {
-    /* Esconde absolutamente tudo */
-    body * {
-        display: none !important;
-    }
-
-    /* Exibe apenas a área da folha */
-    #modal-etiqueta, 
-    #modal-etiqueta .modal-conteudo, 
-    #area-impressao, 
-    #area-impressao * {
-        display: block !important;
-        visibility: visible !important;
-    }
-
-    #modal-etiqueta {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        background: white !important;
-    }
-
-    .modal-conteudo {
-        background: white !important;
-        padding: 0 !important;
-        width: 100% !important;
-        max-width: none !important;
-    }
-
-    .folha-a4 {
-        transform: scale(1); /* Volta ao tamanho original na impressão */
-        margin: 0 !important;
-        padding: 0 !important;
-        box-shadow: none !important;
-    }
-
-    .btn-imprimir, .fechar {
-        display: none !important;
-    }
-}
-
-/* Formatação do Texto da Etiqueta */
-.folha-a4 {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around; /* Distribui as etiquetas na folha */
-    align-items: center;
-    background: white;
-    padding: 10mm;
-}
-
 .bloco-etiqueta {
     text-align: center;
     width: 100%;
-    border-bottom: 1px dashed #ccc; /* Linha opcional para corte */
-    padding: 20px 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px dashed #aaa;
 }
 
 .bloco-etiqueta:last-child {
     border-bottom: none;
 }
 
+/* Localize e substitua este bloco no seu styles-pneus.css */
+
 .codigo-grande {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 80pt !important; /* Texto bem grande conforme solicitado */
-    font-weight: 800;
-    color: #000 !important;
+    /* 'Inter' é mais suave que 'Arial Black', mantendo a legibilidade */
+    font-family: 'Inter', sans-serif; 
+    font-size: 62pt !important; /* Ajustei ligeiramente o tamanho para a nova fonte */
+    font-weight: 700;           /* 700 é um negrito forte, mas não tão 'gordo' como o Black */
     margin: 0;
-    line-height: 1;
+    color: #000 !important;
+    letter-spacing: -1px;       /* Reduzi o aperto entre as letras para suavizar */
+    line-height: 1.1;
 }
 
 .descricao-pneu {
     font-family: 'Inter', Arial, sans-serif;
     font-size: 18pt !important;
-    font-weight: 600;
-    color: #333 !important;
-    margin: 10px 0 0 0;
+    font-weight: bold;
+    margin-top: 5px;
     text-transform: uppercase;
+}
+
+/* ============================================================
+   CONFIGURAÇÃO DE IMPRESSÃO
+   ============================================================ */
+@media print {
+    body * { visibility: hidden; }
+    #modal-etiqueta, #modal-etiqueta *, #area-impressao, #area-impressao * {
+        visibility: visible !important;
+    }
+    .modal { position: absolute; left: 0; top: 0; background: white; }
+    .folha-a4 { transform: scale(1) !important; margin: 0 !important; box-shadow: none !important; }
+    .btn-imprimir, .fechar { display: none !important; }
+}
+
+/* Notificação Flutuante (Toast) */
+.toast-container {
+    position: fixed;
+    top: 15vh;
+    right: 45vw;
+    background-color: #333;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 10002; /* Fica acima de tudo, inclusive do modal */
+    border-left: 4px solid #28a745; /* Barrinha verde de sucesso */
+}
+
+/* Classe ativada pelo JavaScript */
+.toast-container.mostrar {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
