@@ -1,47 +1,30 @@
-Nexus Gestão 🚀
-Nexus Gestão é um ecossistema de painéis administrativos desenvolvido para otimizar o fluxo de trabalho e centralizar o acesso a ferramentas essenciais. O projeto oferece uma interface intuitiva para a gestão de documentos, links externos e formulários operacionais.
+# 🚀 Nexus Gestão
 
-💻 Sobre o Projeto
-O sistema foi construído com foco em usabilidade e performance, utilizando tecnologias web padrão para garantir rapidez e facilidade de manutenção. O layout é dividido em três áreas principais:
+![Status do Projeto](https://img.shields.io/badge/status-em%20desenvolvimento-green)
+![Linguagens](https://img.shields.io/github/languages/top/pedrocs-aug/Nexus-Gest-o)
+![License](https://img.shields.io/github/license/pedrocs-aug/Nexus-Gest-o)
 
-Dashboard Inicial: Ponto de partida para navegação entre módulos.
+O **Nexus Gestão** é uma plataforma moderna e intuitiva projetada para otimizar processos de gerenciamento. Com uma interface limpa e focada na experiência do usuário (UX), o sistema permite o controle eficiente de fluxos de trabalho, dados e operações empresariais.
 
-Módulo de Sites: Central de links externos para portais de parceiros e sistemas internos (como Dealer.net e Vianuvem).
+🔗 **Acesse o projeto online:** [Nexus Gestão Live](https://pedrocs-aug.github.io/Nexus-Gest-o/index.html)
 
-Módulo de Documentos: Sistema de visualização de arquivos operacionais com suporte para impressão direta via navegador.
+---
 
-🛠️ Tecnologias Utilizadas
-HTML5: Estruturação semântica das páginas.
+## 📌 Funcionalidades Principais
 
-CSS3: Estilização moderna com variáveis (:root), Flexbox e Grid.
+* 📊 **Dashboard de Visão Geral:** Painel centralizado com indicadores chave de desempenho.
+* 👥 **Gestão de Cadastro:** Controle simplificado de clientes, usuários ou parceiros.
+* 📦 **Controle de Fluxo:** Organização detalhada de processos internos ou inventário.
+* 📱 **Interface Responsiva:** Design totalmente adaptável para dispositivos móveis e desktop.
+* ⚡ **Navegação Otimizada:** Sistema leve com foco em performance e agilidade.
 
-JavaScript (Vanilla): Lógica de manipulação do DOM para o modal de imagens e funcionalidade de impressão.
+---
 
-Google Fonts: Integração da fonte 'Inter' para melhor legibilidade.
+## 🛠️ Tecnologias Utilizadas
 
-📂 Estrutura de Arquivos
-index.html: Página principal com acesso aos cards de navegação.
+O projeto foi desenvolvido com as seguintes tecnologias:
 
-sites.html: Página contendo os links externos e legendas dinâmicas.
-
-doc.html: Galeria de documentos com funcionalidade de ampliação.
-
-doc.js: Controla a abertura do modal e a função window.print().
-
-styles.css / styles-sites.css / styles-doc.css: Arquivos de estilo específicos para cada módulo.
-
-reset.css: Garante a consistência visual entre diferentes navegadores.
-
-✨ Funcionalidades Destacadas
-Modal de Visualização: Ao clicar em um documento, uma janela sobreposta exibe o arquivo em tamanho ampliado.
-
-Impressão Otimizada: O sistema possui regras de @media print que ocultam menus e barras laterais, focando apenas no documento para garantir uma impressão limpa em folha A4.
-
-Design Responsivo: O layout se adapta automaticamente para dispositivos móveis, escondendo elementos secundários e reorganizando os cards para telas menores.
-
-Sidebar Inteligente: Barra lateral fixa com gradiente personalizado e rodapé informativo integrado.
-
-👤 Autor
-Desenvolvido por Pedro Augusto.
-
-© 2026 Nexus Gestão. Todos os direitos reservados.
+* **HTML5**: Estruturação semântica de alta qualidade.
+* **CSS3**: Estilização avançada com foco em modernidade (Flexbox/Grid).
+* **JavaScript (ES6+)**: Lógica de interatividade e dinamismo.
+* **GitHub Pages**: Hospedagem rápida e segura.
