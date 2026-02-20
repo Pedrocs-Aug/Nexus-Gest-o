@@ -3,21 +3,73 @@
  * Fontes: Bridgestone, Dunlop, Michelin, Pirelli e Yokohama
  */
 const dadosPneus = [
-    // --- BRIDGESTONE ---
-    { codigo: '42652 90001', marca: 'BRIDGESTONE', veiculo: 'ETIOS', desc: '175/65R14 82T F-700' },
-    { codigo: '42652 90102', marca: 'BRIDGESTONE', veiculo: 'YARIS', desc: '185/60R15 84H Ecopia EP150' },
-    { codigo: '42652 90002', marca: 'BRIDGESTONE', veiculo: 'YARIS/GOL/ARGO', desc: '185/60R15 84H Turanza ER300' },
-    { codigo: '42652 91001', marca: 'BRIDGESTONE', veiculo: 'ETIOS/YARIS', desc: '185/70R14 88T F-700' },
-    { codigo: '42652 91102', marca: 'BRIDGESTONE', veiculo: 'FIELDER/PRIUS', desc: '195/60R15 88V Ecopia EP150' },
-    { codigo: '42652 91203', marca: 'BRIDGESTONE', veiculo: 'PRIUS', desc: '195/65R15 91H Ecopia EP150' },
-    { codigo: '42652 91014', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: '205/55R16 91V Ecopia EP150' },
-    { codigo: '42652 91006', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: '225/45R17 91W Turanza T005' },
-    { codigo: '42652 91008', marca: 'BRIDGESTONE', veiculo: 'COROLLA CROSS', desc: '225/50R18 95V Alenza 001' },
-    { codigo: '42652 94103', marca: 'BRIDGESTONE', veiculo: 'RAV4', desc: '225/60R18 100H Alenza H/L 33' },
-    { codigo: '42652 94003', marca: 'BRIDGESTONE', veiculo: 'LEXUS NX', desc: '225/60R18 100H Dueler H/L 33' },
-    { codigo: '42652 94001', marca: 'BRIDGESTONE', veiculo: 'RAV4/GRAND VITARA', desc: '225/65R17 101H Dueler H/T 687' },
-    { codigo: '42652 95003', marca: 'BRIDGESTONE', veiculo: 'CAMRY', desc: '235/45R18 94W Turanza T005A' },
-    { codigo: '42652 94002', marca: 'BRIDGESTONE', veiculo: 'LEXUS NX200T', desc: '235/55R18 100V Dueler H/L 33' },
+    // --- BRIDGESTONE / FIRESTONE ---
+    // --- LINHA ETIOS E YARIS (Aros 14 e 15) ---
+    { codigo: '42652 90113', marca: 'FIRESTONE', veiculo: 'ETIOS', desc: 'PNEU 175/65 R14 82T F-700 FIRESTONE' },
+    { codigo: '42652 90101', marca: 'BRIDGESTONE', veiculo: 'ETIOS', desc: 'PNEU 175/65R14 82T F-700 BRIDGESTONE' },
+    { codigo: '42652 90001', marca: 'BRIDGESTONE', veiculo: 'ETIOS / YARIS', desc: 'PNEU 175/65R14 B250' },
+    { codigo: '42652 90013', marca: 'FIRESTONE', veiculo: 'ETIOS', desc: 'PNEU 175/65R14 F-700 (82T)' },
+    { codigo: '42652 90102', marca: 'BRIDGESTONE', veiculo: 'ETIOS / YARIS', desc: 'PNEU 185/60R15 84H ECOPIA EP150 BRIDGESTONE' },
+    { codigo: '42652 90014', marca: 'FIRESTONE', veiculo: 'ETIOS / YARIS', desc: 'PNEU 185/60R15 84H F-700 FIRESTONE' },
+    { codigo: '42652 90002', marca: 'BRIDGESTONE', veiculo: 'YARIS / COROLLA', desc: 'PNEU 185/60R15 84H TURANZA ER300' },
+    { codigo: '42652 90104', marca: 'FIRESTONE', veiculo: 'ETIOS / YARIS', desc: 'PNEU F700 185/60R15' },
+
+    // --- LINHA COROLLA (Sedan - Aros 15, 16 e 17) ---
+    { codigo: '42652 91001', marca: 'FIRESTONE', veiculo: 'COROLLA (ANTIGO)', desc: 'PNEU 185/70 R14' },
+    { codigo: '42652 91101', marca: 'FIRESTONE', veiculo: 'COROLLA (ANTIGO)', desc: 'PNEU 185/70R14 88T F' },
+    { codigo: '42652 91002', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: 'PNEU 195/60 R15' },
+    { codigo: '42652 91102', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: 'PNEU 195/60 R15 88H' },
+    { codigo: '42652 91202', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: 'PNEU 195/60R15 88V ECOPIA EP 150 BRIDGESTONE' },
+    { codigo: '42652 91203', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: 'PNEU 195/65R15 91H ECOPIA EP150' },
+    { codigo: '42652 91003', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: 'PNEU 195/65R15 91H ECOPIA EP150 BRIGESTONE' },
+    { codigo: '42652 90114', marca: 'FIRESTONE', veiculo: 'COROLLA', desc: 'PNEU F700 195/65R15' },
+    { codigo: '42652 91103', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: 'PNEU TURANZA 195/65' },
+    { codigo: '42652 91004', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: 'PNEU 205/55R16 91V TURANZA ER300' },
+    { codigo: '42652 91015', marca: 'FIRESTONE', veiculo: 'COROLLA', desc: 'PNEU 205/55R16 F-700 91V FIRESTONE' },
+    { codigo: '42652 91014', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: 'PNEU 205/55R16 91V ECOPIA EP150 BRIDGESTONE' },
+    { codigo: '42652 91005', marca: 'BRIDGESTONE', veiculo: 'COROLLA ALTIS', desc: 'PNEU 215/50R17 91V TURANZA ER33 NRFT' },
+    { codigo: '42652 91105', marca: 'BRIDGESTONE', veiculo: 'COROLLA ALTIS', desc: 'PNEU 215/50R17 95W XL TURANZA T005 NRFT' },
+    { codigo: '42652 91016', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: 'TIRE 215/50R17 95W T' },
+    { codigo: '42652 91110', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: 'PNEU TRNZ T005 215/5' },
+    { codigo: '42652 91115', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: 'TIRE TURANZA 215/50R' },
+
+    // --- LINHA COROLLA CROSS / RAV4 / CAMRY (Aros 17 e 18) ---
+    { codigo: '42652 95002', marca: 'BRIDGESTONE', veiculo: 'CAMRY', desc: 'PNEU 215/55R17 93V TURANZA ER33' },
+    { codigo: '42652 95102', marca: 'BRIDGESTONE', veiculo: 'CAMRY', desc: 'PNEU 215/55R17 94V TURANZA T005 NRFT' },
+    { codigo: '42652 91006', marca: 'BRIDGESTONE', veiculo: 'COROLLA CROSS', desc: 'PNEU 225/45R17 91W TURANZA T005' },
+    { codigo: '42652 98005', marca: 'BRIDGESTONE', veiculo: 'COROLLA CROSS', desc: 'PNEU 225/50R/18 95V' },
+    { codigo: '42652 91008', marca: 'BRIDGESTONE', veiculo: 'COROLLA CROSS', desc: 'PNEU 225/50R18 95V ALENZA 001' },
+    { codigo: '42652 99001', marca: 'BRIDGESTONE', veiculo: 'RAV4', desc: 'PNEU 225/50R18 95W T' },
+    { codigo: '42652 94103', marca: 'BRIDGESTONE', veiculo: 'RAV4', desc: 'PNEU 225/60R18 100H ALENZA H/L 33' },
+    { codigo: '42652 94001', marca: 'BRIDGESTONE', veiculo: 'RAV4', desc: 'PNEU 225/65 R17' },
+    { codigo: '42652 94101', marca: 'FIRESTONE', veiculo: 'RAV4', desc: 'PNEU 225/65R17 102H DESTINATION LE2 NRFT' },
+    { codigo: '42652 94002', marca: 'BRIDGESTONE', veiculo: 'RAV4 / SW4', desc: 'PNEU 235/55R18 100V DUELER H/L 33 NRFT' },
+
+    // --- LINHA HILUX E SW4 (Aros 16, 17, 18 e 20) ---
+    { codigo: '42652 92003', marca: 'BRIDGESTONE', veiculo: 'HILUX (BASE)', desc: 'PNEU 205/70 R16' },
+    { codigo: '42652 92001', marca: 'BRIDGESTONE', veiculo: 'HILUX', desc: 'PNEU 255/70 R15' },
+    { codigo: '42652 92005', marca: 'BRIDGESTONE', veiculo: 'HILUX / SW4', desc: 'PNEU 265/60R18 110H DUELER H/T 684II' },
+    { codigo: '42652 92105', marca: 'BRIDGESTONE', veiculo: 'HILUX / SW4', desc: 'PNEU 265/60R18 110T DUELER H/T 684 II ECOPIA NRF' },
+    { codigo: '42652 93001', marca: 'BRIDGESTONE', veiculo: 'HILUX / SW4', desc: 'PNEU 265/65 R17 BRIDGESTONE DUELER HT 684 112S' },
+    { codigo: '42652 93002', marca: 'BRIDGESTONE', veiculo: 'HILUX', desc: 'PNEU 265/65R17 112S DUELER A/T 693 III NRFT BRIDG' },
+    { codigo: '42652 92106', marca: 'FIRESTONE', veiculo: 'HILUX', desc: 'PNEU 265/65R17 112T DESTINATION ATX NRFT FIRES' },
+    { codigo: '42652 92002', marca: 'BRIDGESTONE', veiculo: 'HILUX', desc: 'PNEU 265/70R16 112S DUELER H/T 840 NRFT' },
+    { codigo: '42652 92102', marca: 'FIRESTONE', veiculo: 'HILUX', desc: 'PNEU 265/70R16 112T DESTINATION H/T FIRESTONE' },
+    { codigo: '42652 92202', marca: 'FIRESTONE', veiculo: 'HILUX', desc: 'PNEU 265/70R16 112T, DESTINATION H/T NRFT FIRES' },
+    { codigo: '42652 92004', marca: 'BRIDGESTONE', veiculo: 'HILUX', desc: 'PNEU LT265/75R16' },
+    { codigo: '42652 94004', marca: 'BRIDGESTONE', veiculo: 'SW4 DIAMOND', desc: 'PNEU 235/50R20 100V ALENZA 001 BRIDGESTONE' },
+    { codigo: '42652 97004', marca: 'BRIDGESTONE', veiculo: 'SW4', desc: 'PNEU 245/45RF20 99Y' },
+
+    // --- LINHA ALENZA / DESTINATION / TURANZA (Geral/Outros) ---
+    { codigo: '42652 94107', marca: 'BRIDGESTONE', veiculo: 'COROLLA CROSS', desc: 'PNEU ALENZA 001 215/' },
+    { codigo: '42652 94106', marca: 'BRIDGESTONE', veiculo: 'COROLLA CROSS', desc: 'PNEU ALENZA 001 225/' },
+    { codigo: '42652 94006', marca: 'BRIDGESTONE', veiculo: 'RAV4 / SW4', desc: 'PNEU ALENZA 001 235/' },
+    { codigo: '42652 90004', marca: 'FIRESTONE', veiculo: 'HILUX', desc: 'PNEU DEST ATX 265/60' },
+    { codigo: '42652 90008', marca: 'FIRESTONE', veiculo: 'HILUX', desc: 'PNEU DEST ATX 265/70' },
+    { codigo: '42652 90003', marca: 'FIRESTONE', veiculo: 'HILUX', desc: 'PNEU DEST LE3 265/60' },
+    { codigo: '42652 90006', marca: 'FIRESTONE', veiculo: 'HILUX', desc: 'PNEU DEST LE3 265/65' },
+    { codigo: '42652 91112', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: 'TIRE TURANZA T005 22' },
+    { codigo: '42652 96102', marca: 'BRIDGESTONE', veiculo: 'COROLLA', desc: 'TIRE TURANZA T005 RF' },
 
     // --- DUNLOP ---
     { codigo: '42652 50001', marca: 'DUNLOP', veiculo: 'ETIOS', desc: '175/65R14 82T SP Touring T1' },
