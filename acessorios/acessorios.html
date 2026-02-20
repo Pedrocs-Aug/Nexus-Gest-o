@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Gestão | Catálogo de Pneus</title>
+    <link rel="icon" type="image/png" href="./img/nexus_logo.png">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="./styles-acessorio.css">
+    <link rel="stylesheet" href="../sidebar.css">
+</head>
+
+<body>
+    <div id="toast-container" class="toast-container">Copiado</div>
+    <header class="cabecalho">
+        <h1>NEXUS</h1>
+        <p>gestão</p>
+    </header>
+
+    <main class="container-principal">
+        <nav class="sidebar">
+            <a href="../index.html">
+                <img src="../img/nexus_logo.png" alt="Nexus Logo" class="logo">
+            </a>
+            <ul class="menu">
+                <li><a href="../index.html" class="btn-nav">Início</a></li>
+                <li><a href="../sobre/sobre.html" class="btn-nav">Sobre</a></li>
+                <li><a href="#" class="btn-nav">Serviços</a></li>
+                <li><a href="#" class="btn-nav">Contato</a></li>
+            </ul>
+            <footer class="rodape-sidebar">
+                <p>&copy; 2026 Nexus Gestão.</p>
+                <p>Todos os direitos reservados.</p>
+                <p>Desenvolvido por Pedro Augusto</p>
+            </footer>
+        </nav>
+
+        <section class="dashboard">
+            <div class="apresentacao-tabela">
+                <h2 style="color: var(--cor-dark); margin-bottom: 10px;">Catálogo de Acessórios TURY - Rede Toyota</h2>
+                <input type="text" id="inputBusca" class="search-box"
+                    placeholder="Pesquisar por veículo, categoria ou produto...">
+            </div>
+
+            <div class="data-table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr class="data-table-title">
+                            <th>Part Number (PN)</th>
+                            <th style="width: 50px;"></th>
+                            <th>Veículo</th>
+                            <th>Categoria</th>
+                            <th>Descrição do Produto</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabela">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <div id="modal-etiqueta" class="modal">
+        <span class="fechar" onclick="fecharModal()">&times;</span>
+        <div class="modal-conteudo">
+            <div id="area-impressao" class="folha-a4">
+            </div>
+            <button class="btn-imprimir" onclick="window.print()">Imprimir Etiqueta</button>
+        </div>
+    </div>
+    <script src="./script-tabela.js"></script>
+</body>
+
+</html>
