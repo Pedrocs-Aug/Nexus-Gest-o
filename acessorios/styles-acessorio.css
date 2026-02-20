@@ -188,7 +188,7 @@
     font-family: 'Inter', Arial, sans-serif;
     font-size: 18pt !important;
     font-weight: bold;
-    margin-top: 5px;
+    margin-top: 5mm;
     text-transform: uppercase;
 }
 
@@ -326,6 +326,7 @@
     font-weight: 600;
     text-transform: uppercase;
     border: 1px solid #ddd;
+    font-size: 10.5px;
 }
 
 /* Ajuste para alinhar visualmente com o padrão da tabela de pneus */

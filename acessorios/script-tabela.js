@@ -184,8 +184,8 @@ function renderizarTabela(dados) {
                 </a>
             </td>
             <td class="coluna-acao">
-                <button class="btn-copiar" onclick="copiarTexto('${item.pn}')" title="Copiar Código">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <button class="btn-copiar" onclick="copiarTexto('${item.pn}', this)" title="Copiar código">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                     </svg>
@@ -200,18 +200,22 @@ function renderizarTabela(dados) {
 }
 
 // --- FUNÇÃO PARA COPIAR O TEXTO ---
-function copiarTexto(texto) {
+function copiarTexto(texto, elemento) {
     navigator.clipboard.writeText(texto).then(() => {
+        // Feedback no botão
+        const originalColor = elemento.style.color;
+        elemento.style.color = "#28a745";
+        
+        // Exibir Toast
         const toast = document.getElementById('toast-container');
-        if (toast) {
-            toast.classList.add('mostrar');
-            setTimeout(() => {
-                toast.classList.remove('mostrar');
-            }, 2000);
-        }
+        if(toast) toast.classList.add('mostrar');
+
+        setTimeout(() => {
+            elemento.style.color = originalColor;
+            if(toast) toast.classList.remove('mostrar');
+        }, 2000);
     });
 }
-
 // --- FUNÇÃO PARA ABRIR O MODAL DE ETIQUETA ---
 function abrirModalEtiqueta(codigo, descricao) {
     const modal = document.getElementById('modal-etiqueta');
@@ -225,7 +229,7 @@ function abrirModalEtiqueta(codigo, descricao) {
         conteudo += `
             <div class="bloco-etiqueta">
                 <h1 class="codigo-grande">${codigo}</h1>
-                <p class="descricao-pneu">${descricao.toUpperCase()}</p>
+                <p class="descricao-acessorio">${descricao.toUpperCase()}</p>
             </div>
         `;
     }
