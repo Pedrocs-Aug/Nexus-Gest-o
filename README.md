@@ -13,7 +13,6 @@ O **Nexus Gestão** é uma plataforma moderna e intuitiva projetada para otimiza
 ## 📌 Funcionalidades Principais
 
 * 📊 **Dashboard de Visão Geral:** Painel centralizado com indicadores chave de desempenho.
-* 👥 **Gestão de Cadastro:** Controle simplificado de clientes, usuários ou parceiros.
 * 📦 **Controle de Fluxo:** Organização detalhada de processos internos ou inventário.
 * 📱 **Interface Responsiva:** Design totalmente adaptável para dispositivos móveis e desktop.
 * ⚡ **Navegação Otimizada:** Sistema leve com foco em performance e agilidade.
