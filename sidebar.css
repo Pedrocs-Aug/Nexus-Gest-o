@@ -1,6 +1,7 @@
 /* Sidebar Padronizada - Nexus Gestão */
 .sidebar {
-    background: linear-gradient(180deg, var(--cor-primaria) 0%, var(--cor-primaria-dark) 100%);
+    /* Gradiente atualizado: Vermelho para Azul */
+    background: linear-gradient(180deg, #FF0000 0%, #0000FF 100%);
     width: 250px;
     height: 100%;
     display: flex;
