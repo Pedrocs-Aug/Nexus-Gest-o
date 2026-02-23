@@ -171,16 +171,13 @@
     border-bottom: none;
 }
 
-/* Localize e substitua este bloco no seu styles-pneus.css */
-
 .codigo-grande {
-    /* 'Inter' é mais suave que 'Arial Black', mantendo a legibilidade */
     font-family: 'Inter', sans-serif; 
-    font-size: 62pt !important; /* Ajustei ligeiramente o tamanho para a nova fonte */
-    font-weight: 700;           /* 700 é um negrito forte, mas não tão 'gordo' como o Black */
+    font-size: 62pt !important;
+    font-weight: 700;
     margin: 0;
     color: #000 !important;
-    letter-spacing: -1px;       /* Reduzi o aperto entre as letras para suavizar */
+    letter-spacing: -1px;
     line-height: 1.1;
 }
 
@@ -196,13 +193,11 @@
    CONFIGURAÇÃO DE IMPRESSÃO
    ============================================================ */
 @media print {
-    /* Força o navegador a ignorar margens de sistema */
     @page {
         size: A4;
         margin: 0 !important;
     }
 
-    /* Limpeza total do ambiente de impressão */
     html, body {
         margin: 0 !important;
         padding: 0 !important;
@@ -215,7 +210,6 @@
         display: none !important;
     }
 
-    /* Ativa apenas o necessário */
     #modal-etiqueta, 
     #modal-etiqueta .modal-conteudo, 
     #area-impressao, 
@@ -242,7 +236,6 @@
         justify-content: center !important;
     }
 
-    /* A FOLHA A4 - O Contentor principal */
     .folha-a4 {
         width: 210mm !important;
         height: 297mm !important;
@@ -255,14 +248,12 @@
         box-shadow: none !important;
     }
 
-    /* CADA ETIQUETA - Altura fixa matemática */
     .bloco-etiqueta {
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
-        /* 297 / 4 = 74.25mm. Usamos 74mm para ter 1mm de folga total e evitar a 2ª página */
         height: 74mm !important; 
         max-height: 74mm !important;
         min-height: 74mm !important;
@@ -275,7 +266,6 @@
         border-bottom: none !important;
     }
 
-    /* Ajuste de escala dos textos para não transbordar os 74mm */
     .codigo-grande {
         font-size: 60pt !important;
         margin: 0 !important;
@@ -305,13 +295,70 @@
     visibility: hidden;
     transform: translateY(20px);
     transition: all 0.3s ease;
-    z-index: 10002; /* Fica acima de tudo, inclusive do modal */
-    border-left: 4px solid #28a745; /* Barrinha verde de sucesso */
+    z-index: 10002;
+    border-left: 4px solid #28a745;
 }
 
-/* Classe ativada pelo JavaScript */
 .toast-container.mostrar {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+}
+
+/* --- Estilo do Campo de Entrada --- */
+.input-etiqueta-extra {
+    display: block;
+    width: 60%;
+    margin: 10px auto;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16pt;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+
+/* --- Texto que será replicado (alvo-replica) --- */
+.alvo-replica {
+    font-size: 20pt;
+    font-weight: bold;
+    margin-top: 5mm;
+    min-height: 1.2em;
+    text-align: center;
+    color: #000;
+}
+
+/* --- Correção do Fundo Azul (Preenchimento Automático) --- */
+.input-etiqueta-extra:-webkit-autofill,
+.input-etiqueta-extra:-webkit-autofill:hover, 
+.input-etiqueta-extra:-webkit-autofill:focus {
+    -webkit-text-fill-color: #000 !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* --- Controle de Visibilidade --- */
+.somente-impressao {
+    display: none; /* Esconde o texto da 1ª etiqueta no monitor */
+}
+
+/* ============================================================
+   REGRAS DE IMPRESSÃO ADICIONAIS
+   ============================================================ */
+@media print {
+    /* 1. Esconde o campo de digitação */
+    .input-etiqueta-extra {
+        display: none !important;
+        position: absolute !important;
+        background-color: transparent !important;
+        color: transparent !important;
+        border: none !important;
+    }
+
+    /* 2. Mostra o texto que estava escondido na 1ª etiqueta */
+    .somente-impressao {
+        display: block !important;
+    }
 }

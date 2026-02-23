@@ -527,14 +527,14 @@ function copiarTexto(texto, elemento) {
         // Feedback no botão
         const originalColor = elemento.style.color;
         elemento.style.color = "#28a745";
-        
+
         // Exibir Toast
         const toast = document.getElementById('toast-container');
-        if(toast) toast.classList.add('mostrar');
+        if (toast) toast.classList.add('mostrar');
 
         setTimeout(() => {
             elemento.style.color = originalColor;
-            if(toast) toast.classList.remove('mostrar');
+            if (toast) toast.classList.remove('mostrar');
         }, 2000);
     });
 }
@@ -545,16 +545,65 @@ function abrirModalEtiqueta(codigo, descricao) {
 
     let conteudo = '';
     for (let i = 0; i < 4; i++) {
-        conteudo += `
-            <div class="bloco-etiqueta">
-                <h1 class="codigo-grande">${codigo}</h1>
-                <p class="descricao-pneu">PNEU ${descricao.toUpperCase()}</p>
-            </div>
-        `;
+        if (i === 0) {
+            conteudo += `
+        <div class="bloco-etiqueta">
+            <h1 class="codigo-grande">${codigo}</h1>
+            <p class="descricao-pneu">PNEU ${descricao.toUpperCase()}</p>
+            
+            <input type="text" class="input-etiqueta-extra" 
+                   placeholder="Digite o valor..." oninput="replicarInfo(this.value)">
+            
+            <p class="alvo-replica somente-impressao"></p>
+        </div>
+    `;
+        } else {
+            // RESTANTES ETIQUETAS: Apenas o P que recebe o texto
+            conteudo += `
+                <div class="bloco-etiqueta">
+                    <h1 class="codigo-grande">${codigo}</h1>
+                    <p class="descricao-pneu">PNEU ${descricao.toUpperCase()}</p>
+                    <p class="alvo-replica"></p>
+                </div>
+            `;
+        }
     }
 
     area.innerHTML = conteudo;
     modal.style.display = 'flex';
+}
+
+function replicarInfo(valor) {
+    const campos = document.querySelectorAll('.alvo-replica');
+    
+    // Remove tudo o que não for dígito
+    let apenasNumeros = valor.replace(/\D/g, "");
+    
+    // Converte para valor numérico (centavos)
+    let valorNumerico = (parseFloat(apenasNumeros) / 100).toFixed(2);
+    
+    // Se não for um número válido, limpa o campo
+    if (isNaN(valorNumerico) || apenasNumeros === "") {
+        campos.forEach(campo => campo.textContent = "");
+        return;
+    }
+
+    // Formata para o padrão brasileiro R$
+    const formatado = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    }).format(valorNumerico);
+
+    // Atualiza o input para mostrar a formatação enquanto o usuário digita
+    const input = document.querySelector('.input-etiqueta-extra');
+    if (input) {
+        input.value = formatado;
+    }
+
+    // Replica o valor formatado para as etiquetas
+    campos.forEach(campo => {
+        campo.textContent = formatado;
+    });
 }
 
 function fecharModal() {
