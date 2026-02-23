@@ -1,0 +1,21 @@
+/* Cabeçalho - Nexus Gestão */
+.cabecalho {
+    background-color: var(--cor-dark);
+    color: white;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-bottom: 2px solid var(--cor-primaria);
+}
+
+.cabecalho h1 {
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.cabecalho p {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+}

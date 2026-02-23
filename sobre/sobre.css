@@ -1,4 +1,4 @@
-/* Importando uma fonte mais moderna */
+/* Importação de Fonte */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root {
@@ -12,51 +12,32 @@
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Garante que nada saia do corpo */
+    overflow: hidden;
+    background-color: var(--cor-bg);
 }
 
-/* Header */
-.cabecalho {
-    background-color: var(--cor-dark);
-    color: white;
-    padding: 1.2rem;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.cabecalho h1 {
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin: 0;
-}
-
-.cabecalho p {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
-
-/* Layout Principal */
+/* --- ESTRUTURA PRINCIPAL --- */
 .container-principal {
     display: flex;
-    flex: 1; /* Ocupa todo o espaço entre o header e o final da tela */
-    height: 0; /* Truque de Flexbox para forçar os filhos a respeitarem o limite */
+    flex: 1;
+    height: 0;
     min-height: 0;
 }
 
-/* Sidebar */
+/* --- SIDEBAR (Sincronizada com a lógica global) --- */
 .sidebar {
-    background: linear-gradient(180deg, var(--cor-primaria) 0%, var(--cor-primaria-dark) 100%);
+    background: linear-gradient(180deg, #FF0000 0%, #0000FF 100%); /* Gradiente Vermelho para Azul */
     width: 250px;
-    height: 100%; /* Ocupa 100% da área do container-principal */
+    height: 100%;
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
-    flex-shrink: 0; /* Impede que a sidebar "esmague" no zoom */
+    flex-shrink: 0;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -65,6 +46,7 @@ body {
     border-radius: 12px;
     background: white;
     transition: var(--transition);
+    margin-bottom: 20px;
 }
 
 .logo:hover {
@@ -72,9 +54,11 @@ body {
 }
 
 .menu {
-    flex: 1; /* Ocupa o espaço central */
-    gap: 15px;
-    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Botões mais próximos */
+    padding: 10px;
 }
 
 .btn-nav {
@@ -82,12 +66,11 @@ body {
     background-color: rgba(0, 0, 0, 0.2);
     color: white;
     text-decoration: none;
-    padding: 14px;
+    padding: 10px; /* Estilo Slim */
     border-radius: 10px;
     text-align: center;
     font-weight: 600;
     transition: var(--transition);
-    margin: 5px 0;
 }
 
 .btn-nav:hover {
@@ -95,124 +78,8 @@ body {
     transform: translateX(8px);
 }
 
-/* Dashboard / Cards */
-.dashboard {
-    flex: 1;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    background-color: #f0f2f5;
-    overflow-y: auto; /* Permite scroll se os cards forem muitos */
-}
-
-.cards-row {
-    display: flex;
-    justify-content: flex-start;
-    gap: 25px;
-    min-height: 250px;
-}
-
-.card {
-    background-color: var(--cor-card);
-    flex: 1;
-    max-width: 23%;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
-    padding: 20px;
-    text-decoration: none;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-.card img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: 12px;
-    /* Removida a sombra pesada das imagens para um look mais clean */
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    border-color: var(--cor-primaria);
-}
-
-/* Estilo para cards vazios */
-.card.empty {
-    opacity: 0.4;
-    filter: grayscale(1);
-    cursor: not-allowed;
-    background-color: #e9ecef;
-}
-
-/* RESPONSIVIDADE (Mobile) */
-@media (max-width: 900px) {
-    .container-principal {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        width: 100%;
-        padding: 15px;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .logo {
-        width: 60px;
-        padding: 5px;
-    }
-
-    .menu {
-        flex-direction: row;
-        gap: 8px;
-    }
-
-    .btn-nav {
-        padding: 8px 12px;
-        font-size: 0.85rem;
-    }
-
-    .dashboard {
-        padding: 15px;
-    }
-
-    .cards-row {
-        flex-wrap: wrap;
-        height: auto;
-    }
-
-    .card {
-        max-width: 46%; /* 2 cards por linha no mobile */
-        height: 180px;
-    }
-}
-
-@media (max-width: 480px) {
-    .card {
-        max-width: 100%; /* 1 card por linha no mobile pequeno */
-    }
-    
-    .menu {
-        display: none; /* Oculta menu no mobile muito pequeno para não quebrar */
-    }
-}
-
-/* Estilização do Rodapé na Sidebar */
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Isso ajuda a empurrar o conteúdo */
-}
-
 .rodape-sidebar {
-    margin-top: auto; /* Empurra o rodapé para o final da sidebar */
+    margin-top: auto; /* Empurra para o final */
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
@@ -223,19 +90,81 @@ body {
     font-size: 0.7rem;
     line-height: 1.4;
     opacity: 0.7;
-    font-weight: 400;
 }
 
-/* Esconder rodapé na impressão para não sujar o documento A4 */
-@media print {
-    .rodape-sidebar {
-        display: none !important;
+/* --- DASHBOARD E CONTEÚDO "SOBRE" --- */
+.dashboard {
+    flex: 1;
+    padding: 30px;
+    background-color: #f0f2f5;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Estilização específica dos cards de texto da página Sobre */
+.sobre-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.sobre-card {
+    background-color: var(--cor-card);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.sobre-card h2, .sobre-card h3 {
+    color: var(--cor-dark);
+    margin-bottom: 15px;
+    border-left: 4px solid var(--cor-primaria);
+    padding-left: 15px;
+}
+
+.sobre-card p {
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+.sobre-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .container-principal {
+        flex-direction: column;
     }
-}
 
-/* Ajuste para Mobile */
-@media (max-width: 900px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    .logo {
+        width: 60px;
+        margin-bottom: 0;
+    }
+
+    .menu {
+        flex-direction: row;
+        gap: 8px;
+    }
+
     .rodape-sidebar {
-        display: none; /* Geralmente ocultamos na barra horizontal do mobile */
+        display: none;
+    }
+
+    .sobre-grid {
+        grid-template-columns: 1fr;
     }
 }
