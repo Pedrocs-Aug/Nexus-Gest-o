@@ -1,0 +1,147 @@
+.contato-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.contato-container h2 {
+    color: var(--cor-dark);
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.contato-container p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.form-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.grupo-input label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--cor-dark);
+}
+
+.grupo-input input, 
+.grupo-input textarea {
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    transition: var(--transition);
+}
+
+.grupo-input input:focus, 
+.grupo-input textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    background-color: #fff;
+}
+
+.btn-enviar {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-enviar:hover {
+    background-color: var(--cor-primaria-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(232, 29, 29, 0.3);
+}
+
+@media (max-width: 768px) {
+    .contato-container {
+        padding: 1.5rem;
+    }
+}
+
+/* Estilo para a Notificação Flutuante (Toast) - Tema Nexus */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--cor-dark); /* Fundo escuro do tema */
+    color: white;
+    padding: 16px 28px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1000;
+    transform: translateX(120%);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Linha de destaque com a cor primária (vermelho) */
+    border-left: 5px solid var(--cor-primaria);
+    font-family: 'Inter', sans-serif;
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast span {
+    background: var(--cor-primaria);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.8rem;
+}
+
+/* Estilo para erro na validação */
+.input-erro {
+    border-color: #ff4d4d !important;
+    background-color: #fff5f5;
+}
+
+/* Estilo do Spinner */
+.spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: girar 0.8s linear infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}
+
+/* Ajuste no botão para alinhar o conteúdo */
+.btn-enviar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px; /* Mantém a altura fixa para evitar pulos quando o spinner aparece */
+}
