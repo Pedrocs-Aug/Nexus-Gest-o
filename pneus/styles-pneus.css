@@ -339,26 +339,32 @@
     transition: background-color 5000s ease-in-out 0s;
 }
 
-/* --- Controle de Visibilidade --- */
+/* No CSS geral (fora do media print) */
 .somente-impressao {
-    display: none; /* Esconde o texto da 1ª etiqueta no monitor */
+    display: none; /* Esconde no monitor */
 }
 
-/* ============================================================
-   REGRAS DE IMPRESSÃO ADICIONAIS
-   ============================================================ */
+/* ... (resto do seu código acima) ... */
+
 @media print {
-    /* 1. Esconde o campo de digitação */
+    /* 1. Esconde o input e seu placeholder completamente */
     .input-etiqueta-extra {
         display: none !important;
-        position: absolute !important;
-        background-color: transparent !important;
-        color: transparent !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
         border: none !important;
     }
 
-    /* 2. Mostra o texto que estava escondido na 1ª etiqueta */
+    /* 2. Mostra a div que tem o texto formatado */
     .somente-impressao {
         display: block !important;
+        visibility: visible !important;
+    }
+    
+    /* 3. Garante que se estiver vazio, não ocupe espaço */
+    .alvo-replica:empty {
+        display: none !important;
     }
 }

@@ -575,15 +575,23 @@ function abrirModalEtiqueta(codigo, descricao) {
 
 function replicarInfo(valor) {
     const campos = document.querySelectorAll('.alvo-replica');
+    const input = document.querySelector('.input-etiqueta-extra');
     
     // Remove tudo o que não for dígito
     let apenasNumeros = valor.replace(/\D/g, "");
     
+    // 1. Verificação de Vazio ou Zero
+    // Se não houver números ou se o valor for "000" (que resultaria em 0,00)
+    if (apenasNumeros === "" || parseInt(apenasNumeros) === 0) {
+        campos.forEach(campo => campo.textContent = "");
+        if (input) input.value = ""; // Limpa o input para não mostrar 0,00
+        return;
+    }
+
     // Converte para valor numérico (centavos)
     let valorNumerico = (parseFloat(apenasNumeros) / 100).toFixed(2);
     
-    // Se não for um número válido, limpa o campo
-    if (isNaN(valorNumerico) || apenasNumeros === "") {
+    if (isNaN(valorNumerico)) {
         campos.forEach(campo => campo.textContent = "");
         return;
     }
@@ -595,7 +603,6 @@ function replicarInfo(valor) {
     }).format(valorNumerico);
 
     // Atualiza o input para mostrar a formatação enquanto o usuário digita
-    const input = document.querySelector('.input-etiqueta-extra');
     if (input) {
         input.value = formatado;
     }
