@@ -613,18 +613,26 @@ function fecharModal() {
     if (modal) modal.style.display = 'none';
 }
 
-// --- FILTRO DE BUSCA ---
+// --- FILTRO DE BUSCA MULTI-CRITÉRIO ---
 function inicializarBusca() {
     const inputBusca = document.getElementById('inputBusca');
     if (inputBusca) {
         inputBusca.addEventListener('input', () => {
-            const termo = inputBusca.value.toLowerCase();
-            const filtrados = dadosAcessorios.filter(item =>
-                item.pn.toLowerCase().includes(termo) ||
-                item.veiculo.toLowerCase().includes(termo) ||
-                item.categoria.toLowerCase().includes(termo) ||
-                item.produto.toLowerCase().includes(termo)
-            );
+            const termoBusca = inputBusca.value.toLowerCase().trim();
+            
+            // Divide a busca por espaços para aceitar múltiplos termos
+            const termos = termoBusca.split(' ').filter(t => t.length > 0);
+
+            const filtrados = dadosAcessorios.filter(item => {
+                // Para cada termo da pesquisa, ele deve existir em pelo menos um campo do item
+                return termos.every(termo => 
+                    item.pn.toLowerCase().includes(termo) ||
+                    item.veiculo.toLowerCase().includes(termo) ||
+                    item.categoria.toLowerCase().includes(termo) ||
+                    item.produto.toLowerCase().includes(termo)
+                );
+            });
+
             renderizarTabela(filtrados);
         });
     }
