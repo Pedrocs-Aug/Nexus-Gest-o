@@ -484,14 +484,20 @@ function renderizarTabela(filtro = "") {
     const corpoTabela = document.getElementById('corpoTabela');
     corpoTabela.innerHTML = "";
 
-    const termoBusca = filtro.toLowerCase();
+    // Divide o termo de busca em múltiplas palavras (critérios)
+    const termos = filtro.toLowerCase().trim().split(/\s+/);
 
-    const filtrados = dadosPneus.filter(item =>
-        item.codigo.toLowerCase().includes(termoBusca) ||
-        item.marca.toLowerCase().includes(termoBusca) ||
-        item.veiculo.toLowerCase().includes(termoBusca) ||
-        item.desc.toLowerCase().includes(termoBusca)
-    );
+    const filtrados = dadosPneus.filter(item => {
+        // Para cada pneu, verifica se TODAS as palavras digitadas existem em algum campo
+        return termos.every(termo => {
+            return (
+                item.codigo.toLowerCase().includes(termo) ||
+                item.marca.toLowerCase().includes(termo) ||
+                item.veiculo.toLowerCase().includes(termo) ||
+                item.desc.toLowerCase().includes(termo)
+            );
+        });
+    });
 
     filtrados.forEach(item => {
         const tr = document.createElement('tr');
