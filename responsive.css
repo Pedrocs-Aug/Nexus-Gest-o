@@ -278,6 +278,81 @@
     .toast.show {
         transform: translateY(0) !important;
     }
+
+    /* 10. Adaptação da Planilha de Acessórios para Mobile */
+
+/* Esconde o cabeçalho original da tabela no mobile */
+.tabela-acessorios thead {
+    display: none !important;
+}
+
+/* Transforma o corpo da tabela em uma lista flexível */
+.tabela-acessorios tbody {
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Transforma cada linha (TR) em um Card individual */
+.tabela-acessorios tr {
+    display: grid !important;
+    grid-template-areas: 
+        "codigo marca"
+        "veiculo veiculo"
+        "medida medida"
+        "acoes acoes";
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 20px !important;
+    padding: 15px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 12px !important;
+    background: #fff !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05) !important;
+}
+
+/* Estilização das células (TD) dentro do Card */
+.tabela-acessorios td {
+    display: block !important;
+    padding: 5px !important;
+    border: none !important;
+    font-size: 0.9rem !important;
+}
+
+/* Identificando as colunas específicas pelo layout */
+.tabela-acessorios td:nth-child(1) { grid-area: codigo; font-weight: bold; color: var(--cor-primaria); }
+.tabela-acessorios td:nth-child(2) { grid-area: marca; text-align: right; }
+.tabela-acessorios td:nth-child(3) { grid-area: veiculo; border-top: 1px solid #eee !important; padding-top: 10px !important; }
+.tabela-acessorios td:nth-child(4) { grid-area: medida; font-weight: 600; color: #333; }
+.tabela-acessorios td:nth-child(5) { 
+    grid-area: acoes; 
+    text-align: center; 
+    background: #f9f9f9; 
+    border-radius: 8px; 
+    margin-top: 5px;
+}
+
+/* Ajuste do botão de copiar para o polegar no mobile */
+.copy-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 10px !important;
+}
+
+/* Ajuste dos Filtros de Acessórios */
+.filtros-acessorios {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-bottom: 20px !important;
+}
+
+.filtros-acessorios input, 
+.filtros-acessorios select {
+    width: 100% !important;
+    height: 45px !important; /* Altura melhor para toque */
+    font-size: 16px !important; /* Evita zoom no iOS */
+}
+
 }
 
 /* Ajustes para Smartphones Pequenos */
