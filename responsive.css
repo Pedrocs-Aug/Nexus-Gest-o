@@ -276,3 +276,121 @@ td {
     justify-content: center;
     margin-bottom: 5px;
 }
+
+@media (max-width: 850px) {
+    
+    /* Ajuste para as linhas de cards que usam flex no desktop */
+    .cards-row {
+        display: grid !important; /* Muda de flex para grid */
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 colunas no mobile */
+        gap: 15px !important;
+        width: 100% !important;
+    }
+
+    /* Ajuste específico para os cards de sites */
+    .card {
+        max-width: 100% !important;
+        width: 100% !important;
+        min-width: unset !important;
+        height: 160px !important; /* Altura reduzida para sites */
+        aspect-ratio: auto !important; /* Remove o 1/1 para não ficar gigante */
+        padding: 10px !important;
+        background: #ffffff !important;
+        border: 1px solid #eee !important;
+    }
+
+    .card img {
+        max-width: 60% !important;
+        max-height: 50% !important;
+        margin-top: -20px !important; /* Sobe a imagem para dar espaço à legenda */
+    }
+
+    /* Garantir que as legendas dos sites fiquem visíveis */
+    .legend {
+        position: absolute !important;
+        bottom: 10px !important;
+        width: 90% !important;
+        font-size: 0.65rem !important;
+        padding: 4px 8px !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Ajuste para o último card (Cursos Toyota) não ficar sozinho esticado */
+    .cards-row:last-of-type {
+        grid-template-columns: 1fr 1fr !important; 
+    }
+}
+
+/* Ajustes para Telas Muito Pequenas */
+@media (max-width: 450px) {
+    .cards-row {
+        grid-template-columns: 1fr !important; /* 1 coluna apenas */
+    }
+    
+    .card {
+        height: 140px !important;
+    }
+}
+
+/* responsive.css - Adaptação específica para a página Sobre */
+
+@media (max-width: 850px) {
+
+    /* Ajuste do container pai para evitar paddings duplicados */
+    .dashboard .cards-row > .dashboard {
+        padding: 0 !important;
+        background-color: transparent !important;
+        width: 100% !important;
+    }
+
+    /* Espaçamento do conteúdo interno */
+    .sobre-conteudo {
+        gap: 15px !important;
+        width: 100% !important;
+    }
+
+    /* Estilização dos cards de texto no mobile */
+    .sobre-card {
+        padding: 20px !important;
+        border-radius: 15px !important;
+    }
+
+    .sobre-card h2, 
+    .sobre-card h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 10px !important;
+        padding-left: 10px !important;
+    }
+
+    .sobre-card p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+        text-align: justify; /* Melhora a estética de blocos de texto longos */
+    }
+
+    /* Ajuste da Grid (Quem Somos e Tecnologias) */
+    .sobre-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    /* Garante que os cards 'mini' ocupem a largura total */
+    .sobre-card.mini {
+        width: 100% !important;
+        min-height: auto !important;
+    }
+}
+
+/* Ajustes finos para telas muito pequenas */
+@media (max-width: 400px) {
+    .sobre-card {
+        padding: 15px !important;
+    }
+    
+    .sobre-card h2 {
+        font-size: 1rem !important;
+    }
+}
