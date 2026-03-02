@@ -148,61 +148,65 @@
     /* 1. Esconde o cabeçalho original da tabela (opcional, mas limpa o visual) */
     /* Estilização para transformar linhas da tabela em Cards no Mobile */
 
-/* 1. Esconde o cabeçalho original */
-thead {
-    display: none !important;
-}
+    /* 1. Esconde o cabeçalho original */
+    thead {
+        display: none !important;
+    }
 
-/* 2. Container dos cards com fundo leve para tirar o "branco total" */
-tbody {
-    display: block !important;
-    background-color: #f4f7f9 !important; /* Cor de fundo entre os cards */
-    padding: 10px 5px !important;
-    border-radius: 8px;
-}
+    /* 2. Container dos cards com fundo leve para tirar o "branco total" */
+    tbody {
+        display: block !important;
+        background-color: #f4f7f9 !important;
+        /* Cor de fundo entre os cards */
+        padding: 10px 5px !important;
+        border-radius: 8px;
+    }
 
-/* 3. O Card em si */
-tr {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    margin-bottom: 12px !important; /* Espaçamento entre cards */
-    border: 1px solid #e0e0e0 !important;
-    border-radius: 12px !important;
-    background: #ffffff !important; /* Card continua branco */
-    padding: 15px !important;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
-    width: 100% !important;
-}
+    /* 3. O Card em si */
+    tr {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        margin-bottom: 12px !important;
+        /* Espaçamento entre cards */
+        border: 1px solid #e0e0e0 !important;
+        border-radius: 12px !important;
+        background: #ffffff !important;
+        /* Card continua branco */
+        padding: 15px !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+        width: 100% !important;
+    }
 
-/* 4. Colunas de cima (Código, Marca, Veículo) */
-td:nth-child(1),
-td:nth-child(2),
-td:nth-child(3) {
-    display: block !important;
-    flex: 1 1 33% !important; 
-    border: none !important;
-    font-size: 0.8rem !important;
-    padding: 5px !important;
-    color: #666;
-}
+    /* 4. Colunas de cima (Código, Marca, Veículo) */
+    td:nth-child(1),
+    td:nth-child(2),
+    td:nth-child(3) {
+        display: block !important;
+        flex: 1 1 33% !important;
+        border: none !important;
+        font-size: 0.8rem !important;
+        padding: 5px !important;
+        color: #666;
+    }
 
-/* 5. A coluna de Medida/Descrição (Linha de baixo) */
-td:nth-child(4) {
-    display: block !important;
-    flex: 1 1 100% !important;
-    border-top: 1px dashed #eee !important; /* Linha divisória interna */
-    margin-top: 10px !important;
-    padding-top: 12px !important;
-    font-weight: 600 !important;
-    color: #222 !important;
-    font-size: 0.9rem !important;
-}
+    /* 5. A coluna de Medida/Descrição (Linha de baixo) */
+    td:nth-child(4) {
+        display: block !important;
+        flex: 1 1 100% !important;
+        border-top: 1px dashed #eee !important;
+        /* Linha divisória interna */
+        margin-top: 10px !important;
+        padding-top: 12px !important;
+        font-weight: 600 !important;
+        color: #222 !important;
+        font-size: 0.9rem !important;
+    }
 
-/* Ajuste do ícone de copiar para não quebrar o layout */
-.copy-icon {
-    float: right;
-    opacity: 0.6;
-}
+    /* Ajuste do ícone de copiar para não quebrar o layout */
+    .copy-icon {
+        float: right;
+        opacity: 0.6;
+    }
 }
 
 /* Ajustes para Smartphones Pequenos */
