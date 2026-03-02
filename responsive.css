@@ -139,7 +139,7 @@
     }
 
     .modal-conteudo img {
-        max-height: 60vh !important;
+        max-height: 60vh !important;0
         /* Ajuste para não quebrar no mobile */
     }
 
@@ -182,7 +182,7 @@
     td:nth-child(2),
     td:nth-child(3) {
         display: block !important;
-        flex: 1 1 33% !important;
+        flex: 1 1 1 !important;
         border: none !important;
         font-size: 0.8rem !important;
         padding: 5px !important;
