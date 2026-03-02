@@ -207,6 +207,77 @@
         float: right;
         opacity: 0.6;
     }
+
+    /* 9. Adaptação Específica para Página de Contato */
+    .contato-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1.5rem !important;
+        /* Reduz o padding interno no mobile */
+        border-radius: 15px !important;
+        box-shadow: none !important;
+        /* Remove sombra pesada para leveza visual */
+        background: transparent !important;
+        /* Opcional: integra melhor ao fundo da dashboard */
+    }
+
+    .contato-container h2 {
+        font-size: 1.5rem !important;
+        text-align: center;
+    }
+
+    .contato-container p {
+        font-size: 0.9rem !important;
+        text-align: center;
+        margin-bottom: 20px !important;
+    }
+
+    .form-contato {
+        gap: 15px !important;
+    }
+
+    .grupo-input label {
+        font-size: 0.85rem !important;
+    }
+
+    .grupo-input input,
+    .grupo-input textarea {
+        font-size: 1rem !important;
+        /* Evita o zoom automático do iOS em inputs */
+        padding: 10px !important;
+    }
+
+    .btn-enviar {
+        width: 100% !important;
+        padding: 14px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .contato-whatsapp {
+        margin-top: 20px !important;
+        padding-top: 15px !important;
+    }
+
+    .btn-whatsapp {
+        width: 100% !important;
+        /* Botão de WhatsApp ocupa largura total */
+        justify-content: center;
+    }
+
+    /* Ajuste para o Toast no Mobile */
+    .toast {
+        width: 90% !important;
+        right: 5% !important;
+        left: 5% !important;
+        bottom: 20px !important;
+        /* Move para baixo para não cobrir o cabeçalho */
+        top: auto !important;
+        transform: translateY(150%);
+    }
+
+    .toast.show {
+        transform: translateY(0) !important;
+    }
 }
 
 /* Ajustes para Smartphones Pequenos */
@@ -276,4 +347,3 @@ td {
     justify-content: center;
     margin-bottom: 5px;
 }
-
