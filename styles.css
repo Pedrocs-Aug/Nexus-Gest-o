@@ -108,6 +108,6 @@ body {
 
 /* Efeito de destaque no hover */
 .card:hover .legenda-card {
-    background-color: var(--cor-primaria);
+    background-color: transparent !important;
     transform: scale(1.05);
 }

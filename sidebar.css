@@ -1,15 +1,33 @@
-/* Sidebar Padronizada - Nexus Gestão */
 .sidebar {
-    /* Gradiente atualizado: Vermelho para Azul */
-    background: linear-gradient(180deg, #FF0000 0%, #0000FF 100%);
+    /* Esticamos a sidebar para o topo absoluto */
+    position: fixed; /* Ou garanta que o container pai permita o topo */
+    top: 0;
+    left: 0;
+    z-index: 5; /* MENOR que o do header para ficar atrás */
+    
     width: 250px;
-    height: 100%;
+    height: 100vh; /* Altura total da tela */
+    
+    /* O mesmo gradiente animado que você aprovou */
+    background: linear-gradient(180deg, 
+        #FF0000 0%, 
+        #FF0000 20%, 
+        #0000FF 60%, 
+        #FF0000 100%
+    );
+    background-size: 100% 200%;
+    animation: gradientMove 10s ease-in-out infinite;
+
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Garante que o conteúdo comece sempre do topo */
     padding: 1.5rem;
-    flex-shrink: 0;
+    padding-top: calc(13vh + 1.5rem); /* COMPENSAÇÃO: Empurra o logo/menu para baixo do header */
     box-sizing: border-box;
+}
+
+@keyframes gradientMove {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 0% 70%; }
 }
 
 /* Container do Logo para garantir margem fixa no topo */
@@ -100,4 +118,10 @@
     .rodape-sidebar {
         display: none;
     }
+}
+
+.dashboard {
+    margin-left: 250px; /* Mesma largura da sidebar */
+    padding-top: 20px;
+    flex: 1;
 }
