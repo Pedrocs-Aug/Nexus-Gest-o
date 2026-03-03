@@ -372,3 +372,57 @@
     text-decoration: underline;
     color: #e31d1a;
 }
+
+/* Estilo para o container da observação */
+.obs-tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    color: #d32f2f; /* Cor de destaque para o número */
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+/* A etiqueta flutuante (escondida por padrão) */
+.obs-tooltip::after {
+    content: attr(data-obs); /* Puxa o texto do atributo data-obs */
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: normal;
+    width: 250px; /* Largura da etiqueta */
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-weight: normal;
+    text-align: center;
+}
+
+/* Seta da etiqueta */
+.obs-tooltip::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Exibir ao passar o mouse */
+.obs-tooltip:hover::after,
+.obs-tooltip:hover::before {
+    opacity: 1;
+    visibility: visible;
+}

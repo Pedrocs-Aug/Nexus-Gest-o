@@ -536,6 +536,108 @@ const dadosAcessorios = [
     { veiculo: 'YARIS HATCH E SEDAN', categoria: 'ILUMINAÇÃO', produto: 'Iluminação Branca - Porta-Malas', pn: 'ATURY09525' },
 ];
 
+// --- DICIONÁRIO DE OBSERVAÇÕES ---
+const dicionarioObservacoes = {
+    "HILUX CABINE DUPLA POWERPACK MT": {
+        "(1)": "Necessita do kit câmeras laterais ATURY12403 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar",
+        "(3)": "Necessita do tapete organizador - transporte cargas ATURY09521 instalado para funcionar"
+    },
+    "HILUX CABINE DUPLA POWERPACK AT": {
+        "(1)": "Necessita do kit câmeras laterais ATURY 12403 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY 12415 instalado para funcionar",
+        "(3)": "Necessita do tapete organizador - transporte cargas ATURY09521 instalado para funcionar"
+    },
+    "HILUX CABINE DUPLA SR": {
+        "(1)": "Necessita do kit câmeras laterais ATURY12403 instalado para funcionar ATURY11402",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar",
+        "(3)": "Necessita do tapete organizador - transporte cargas ATURY09521 instalado para funcionar"
+    },
+    "HILUX CABINE DUPLA SRV": {
+        "(1)": "Necessita do kit câmeras laterais ATURY12403 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar",
+        "(3)": "Necessita do tapete organizador - transporte cargas ATURY09521 instalado para funcionar"
+    },
+    "HILUX CABINE DUPLA SRX": {
+        "(1)": "Necessita do kit câmeras laterais ATURY 12412 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar",
+        "(3)": "Necessita do tapete organizador - transporte cargas ATURY09521 instalado para funcionar"
+    },
+    "HILUX CABINE DUPLA SRX PLUS": {
+        "(1)": "Necessita do kit câmeras laterais ATURY12412 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar",
+        "(3)": "Necessita do tapete organizador - transporte cargas ATURY09521 instalado para funcionar"
+    },
+    "HILUX CABINE SIMPLES (MT OU AT)": {
+        "(1)": "Este acessório se aplica somente na versão MT (transmissão manual)",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar",
+        "(3)": "Necessita do tapete organizador - transporte cargas ATURY09521 instalado para funcionar"
+    },
+    "HILUX CHASSI (MT OU AT)": {
+        "(1)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar",
+        "(2)": "Este acessório se aplica somente na versão MT (transmissão manual)"
+    },
+    "SW4 SRX (5 E 7 LUGARES) E DIAMOND": {
+        "(1)": "Necessita do kit câmeras laterais ATURY12412 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar"
+    },
+    "COROLLA CROSS XR": {
+        "(1)": "Necessita do kit câmeras laterais ATURY12403 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar"
+    },
+    "COROLLA CROSS XRE": {
+        "(1)": "Necessita do kit câmeras laterais ATURY12403 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar"
+    },
+    "COROLLA CROSS XRX": {
+        "(1)": "Necessita do kit câmeras laterais ATURY 12403 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY 12415 instalado para funcionar"
+    },
+    "COROLLA CROSS XRX HÍBRIDO": {
+        "(1)": "Necessita do kit câmeras laterais ATURY12403 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar"
+    },
+    "COROLLA CROSS GR SPORT": {
+        "(1)": "Necessita do kit câmeras laterais ATURY 12403 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY 12415 instalado para funcionar"
+    },
+    "COROLLA GLI + XEI": {
+        "(1)": "Necessita do kit câmeras laterais ATURY12403 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar"
+    },
+    "COROLLA ALTIS PREMIUM + ALTIS PREMIUM HYBRID + GR SPORT": {
+        "(1)": "Necessita do kit câmeras laterais ATURY12403 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar"
+    },
+    "YARIS CROSS XR + XRE + XRE HÍBRIDO": {
+        "(1)": "Necessita do kit câmeras laterais ATURY09505 instalado para funcionar",
+        "(2)": "Necessita do subwoofer 8\" slim plug and play ATURY03507 para funcionar",
+        "(3)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar"
+    },
+    "YARIS CROSS XRX + XRX HÍBRIDO": {
+        "(1)": "Necessita do kit câmeras laterais ATURY09506 instalado para funcionar",
+        "(2)": "Necessita do subwoofer 8\" slim plug and play ATURY03507 para funcionar",
+        "(3)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar"
+    },
+    "HIACE MINI ONIBUS AT DX": {
+        "(1)": "Necessita do kit câmeras laterais ATURY12403 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar"
+    },
+    "RAV4 XSE": {
+        "(1)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar"
+    },
+    "RAV4 SX": {
+        "(1)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar"
+    },
+    "GR COROLLA": {
+        "(1)": "Necessita da iluminação colorida - 4 portas + painel ATURY12415 instalado para funcionar"
+    },
+    "YARIS HATCH E SEDAN": {
+        "(1)": "Necessita do kit câmeras laterais ATURY12412 instalado para funcionar",
+        "(2)": "Necessita da iluminação colorida - 4 portas + painel ATURY 12415 instalado para funcionar"
+    }
+};
+
 // --- FUNÇÃO PRINCIPAL DE RENDERIZAÇÃO ---
 function renderizarTabela(dados) {
     const corpoTabela = document.getElementById('corpoTabela');
@@ -545,6 +647,19 @@ function renderizarTabela(dados) {
 
     dados.forEach(item => {
         const linha = document.createElement('tr');
+
+        // LÓGICA DE OBSERVAÇÃO (ACRESCENTADA)
+        let produtoProcessado = item.produto;
+        const match = item.produto.match(/\((\d)\)/);
+        if (match) {
+            const marcador = match[0];
+            const veiculoKey = item.veiculo.toUpperCase().trim();
+            if (dicionarioObservacoes[veiculoKey] && dicionarioObservacoes[veiculoKey][marcador]) {
+                const textoObs = dicionarioObservacoes[veiculoKey][marcador];
+                produtoProcessado = item.produto.replace(marcador, 
+                    `<span class="obs-tooltip" data-obs="${textoObs}">${marcador}</span>`);
+            }
+        }
 
         linha.innerHTML = `
             <td>
@@ -562,7 +677,7 @@ function renderizarTabela(dados) {
             </td>
             <td>${item.veiculo}</td>
             <td><span class="tag-categoria">${item.categoria}</span></td>
-            <td>${item.produto}</td>
+            <td>${produtoProcessado}</td>
         `;
         corpoTabela.appendChild(linha);
     });
@@ -571,11 +686,9 @@ function renderizarTabela(dados) {
 // --- FUNÇÃO PARA COPIAR O TEXTO ---
 function copiarTexto(texto, elemento) {
     navigator.clipboard.writeText(texto).then(() => {
-        // Feedback no botão
         const originalColor = elemento.style.color;
         elemento.style.color = "#28a745";
 
-        // Exibir Toast
         const toast = document.getElementById('toast-container');
         if (toast) toast.classList.add('mostrar');
 
@@ -585,6 +698,7 @@ function copiarTexto(texto, elemento) {
         }, 2000);
     });
 }
+
 // --- FUNÇÃO PARA ABRIR O MODAL DE ETIQUETA ---
 function abrirModalEtiqueta(codigo, descricao) {
     const modal = document.getElementById('modal-etiqueta');
@@ -593,7 +707,6 @@ function abrirModalEtiqueta(codigo, descricao) {
     if (!modal || !area) return;
 
     let conteudo = '';
-    // Gera as 4 etiquetas padrão folha A4
     for (let i = 0; i < 4; i++) {
         conteudo += `
             <div class="bloco-etiqueta">
@@ -619,12 +732,9 @@ function inicializarBusca() {
     if (inputBusca) {
         inputBusca.addEventListener('input', () => {
             const termoBusca = inputBusca.value.toLowerCase().trim();
-            
-            // Divide a busca por espaços para aceitar múltiplos termos
             const termos = termoBusca.split(' ').filter(t => t.length > 0);
 
             const filtrados = dadosAcessorios.filter(item => {
-                // Para cada termo da pesquisa, ele deve existir em pelo menos um campo do item
                 return termos.every(termo => 
                     item.pn.toLowerCase().includes(termo) ||
                     item.veiculo.toLowerCase().includes(termo) ||
@@ -640,8 +750,10 @@ function inicializarBusca() {
 
 // --- INICIALIZAÇÃO AO CARREGAR A PÁGINA ---
 document.addEventListener('DOMContentLoaded', () => {
-    renderizarTabela(dadosAcessorios);
-    inicializarBusca();
+    if (typeof dadosAcessorios !== 'undefined') {
+        renderizarTabela(dadosAcessorios);
+        inicializarBusca();
+    }
 });
 
 // Fechar modal ao clicar fora dele
