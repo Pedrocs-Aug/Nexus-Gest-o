@@ -108,6 +108,27 @@ body {
 
 /* Efeito de destaque no hover */
 .card:hover .legenda-card {
-    background-color: transparent !important;
+    background-color: rgb(236, 14, 14);
     transform: scale(1.05);
+}
+
+.dashboard {
+    margin-top: 5px; /* Espaçamento entre o cabeçalho e o conteúdo do dashboard */
+}
+
+body {
+    /* O mesmo gradiente animado que você aprovou */
+    background: linear-gradient(180deg, 
+        #FF0000 0%, 
+        #FF0000 20%, 
+        #0000FF 60%, 
+        #FF0000 100%
+    );
+    background-size: 100% 200%;
+    animation: gradientMove 10s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 0% 70%; }
 }

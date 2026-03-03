@@ -353,6 +353,14 @@
     font-size: 16px !important; /* Evita zoom no iOS */
 }
 
+/* No responsive.css, dentro do @media (max-width: 850px) */
+
+.dashboard {
+    margin-left: 0 !important; /* Remove o empurrão da sidebar desktop */
+    padding-top: 20px !important; 
+    width: 100% !important;
+}
+
 }
 
 /* Ajustes para Smartphones Pequenos */

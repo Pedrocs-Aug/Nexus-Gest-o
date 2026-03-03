@@ -23,6 +23,8 @@
     padding: 1.5rem;
     padding-top: calc(13vh + 1.5rem); /* COMPENSAÇÃO: Empurra o logo/menu para baixo do header */
     box-sizing: border-box;
+
+    background-color: transparent;
 }
 
 @keyframes gradientMove {
@@ -120,8 +122,8 @@
     }
 }
 
-.dashboard {
-    margin-left: 250px; /* Mesma largura da sidebar */
-    padding-top: 20px;
-    flex: 1;
+@media (min-width: 851px) {
+    .dashboard {
+        margin-left: 250px;
+    }
 }
