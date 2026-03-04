@@ -23,8 +23,6 @@
     padding: 1.5rem;
     padding-top: calc(13vh + 1.5rem); /* COMPENSAÇÃO: Empurra o logo/menu para baixo do header */
     box-sizing: border-box;
-
-    background-color: transparent;
 }
 
 @keyframes gradientMove {
