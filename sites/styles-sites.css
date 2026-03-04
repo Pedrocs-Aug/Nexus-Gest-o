@@ -126,7 +126,7 @@ body {
     transition: var(--transition);
     padding: 20px;
     text-decoration: none;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .card img {
@@ -152,6 +152,11 @@ body {
     border-radius: 20px;
     font-size: 0.75rem;
     font-weight: 600;
+}
+
+.card:hover .legend {
+    background-color: rgb(236, 14, 14);
+    transform: scale(1.05);
 }
 
 /* --- RESPONSIVIDADE --- */
