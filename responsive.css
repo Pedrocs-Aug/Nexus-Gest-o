@@ -32,13 +32,13 @@
     .sidebar {
         width: 100% !important;
         height: auto !important;
-        background: linear-gradient(180deg,
+        background: linear-gradient(90deg,
                 #FF0000 0%,
                 #FF0000 20%,
                 #0000FF 60%,
                 #FF0000 100%);
         background-size: 100% 200%;
-        animation: gradientMove 10s ease-in-out infinite;
+        animation: gradientMove 1s ease-in-out infinite;
         padding: 12px 15px 12px 80px !important;
         flex-direction: row !important;
         align-items: center !important;
@@ -472,3 +472,4 @@ td {
     justify-content: center;
     margin-bottom: 5px;
 }
+
