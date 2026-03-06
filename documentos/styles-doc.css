@@ -346,29 +346,6 @@ body {
         display: none !important;
     }
 }
-
-/* Estilização do Rodapé na Sidebar */
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content:沟通; /* Isso ajuda a empurrar o conteúdo */
-}
-
-.rodape-sidebar {
-    margin-top: auto; /* Empurra o rodapé para o final da sidebar */
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-}
-
-.rodape-sidebar p {
-    color: white;
-    font-size: 0.7rem;
-    line-height: 1.4;
-    opacity: 0.7;
-    font-weight: 400;
-}
-
 /* Esconder rodapé na impressão para não sujar o documento A4 */
 @media print {
     .rodape-sidebar {
@@ -381,4 +358,51 @@ body {
     .rodape-sidebar {
         display: none; /* Geralmente ocultamos na barra horizontal do mobile */
     }
+}
+
+/* Container das opções que aparecem no hover */
+.card-selection {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay-options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 52, 58, 0.9); /* Cor var(--cor-dark) com transparência */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.card-selection:hover .overlay-options {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.btn-select {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 80%;
+    transition: var(--transition);
+}
+
+.btn-select:hover {
+    background-color: rgb(255, 255, 255);
+    color: var(--cor-primaria);
+    transform: scale(1.05);
 }
