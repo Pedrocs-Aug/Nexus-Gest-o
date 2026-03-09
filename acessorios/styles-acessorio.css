@@ -426,3 +426,46 @@
     opacity: 1;
     visibility: visible;
 }
+
+.header-tabela-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Garante que em telas menores os botões quebrem a linha */
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.botoes-atalho {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-atalho {
+    text-decoration: none;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--cor-dark);
+    border: 1px solid #ddd;
+    border-radius: 20px; /* Estilo pílula, bem moderno */
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.btn-atalho:hover {
+    background-color: var(--cor-primaria); /* Use a cor azul/roxa do seu projeto */
+    color: white;
+    border-color: var(--cor-primaria);
+}
+
+.btn-atalho.active {
+    background-color: var(--cor-dark);
+    color: white;
+    border-color: var(--cor-dark);
+}
+
+/* Ajuste no input para não ficar colado */
+#inputBusca {
+    margin-top: 5px;
+}
