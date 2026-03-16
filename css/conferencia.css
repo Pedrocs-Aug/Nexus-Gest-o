@@ -1,0 +1,333 @@
+/* Importação de Fonte */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --cor-primaria: #e81d1d;
+    --cor-dark: #2c343a;
+    --cor-bg: #f8f9fa;
+    --cor-card: #ffffff;
+    --cor-texto: #333333;
+    --border-color: #ddd;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--cor-bg);
+    color: var(--cor-texto);
+}
+
+/* --- ESTRUTURA PRINCIPAL --- */
+.container-principal {
+    display: flex;
+    flex: 1;
+    height: 0;
+    min-height: 0;
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+    background: linear-gradient(180deg, #FF0000 0%, #0000FF 100%);
+    width: 250px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    background: white;
+    margin-bottom: 20px;
+}
+
+.menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-nav {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-nav:hover {
+    background-color: var(--cor-dark);
+    transform: translateX(8px);
+}
+
+/* --- ÁREA DA TABELA (DASHBOARD) --- */
+.dashboard {
+    flex: 1;
+    padding: 30px;
+    background-color: #f0f2f5;
+    overflow-y: auto;
+    /* Permite scroll se a tabela for grande */
+}
+
+/* Estilos iniciais para o Input de Arquivo */
+.upload-section {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilo da Tabela que será gerada */
+.table-container {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th {
+    background-color: var(--cor-dark);
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* excel.css */
+.container-principal {
+    display: flex; /* Alinha sidebar e dashboard lado a lado */
+    width: 100%;
+}
+
+.dashboard {
+    flex: 1; /* Ocupa todo o espaço que sobrar, nem mais, nem menos */
+    margin-left: 0; /* Zere as margens manuais */
+}
+
+/* Container dos botões */
+.botoes-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Estilizando o botão de Importar (Label) */
+.btn-importar {
+    background-color: var(--cor-dark);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    display: inline-block;
+}
+
+.btn-importar:hover {
+    background-color: #3d4852;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Esconde o input de arquivo original */
+#input-excel {
+    display: none;
+}
+
+/* Estilizando o botão de Imprimir */
+.btn-imprimir-estilo {
+    padding: 12px 24px;
+    background: #28a745; /* Verde sucesso */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    transition: var(--transition);
+    display: none; /* O JS vai mostrar quando o arquivo for carregado */
+}
+
+.btn-imprimir-estilo:hover {
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+/* Efeito quando um arquivo é selecionado (opcional via JS) */
+.btn-importar.selecionado {
+    background: #e81d1d; /* Cor primária Nexus */
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 900px) {
+    .container-principal {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+    }
+
+    .logo {
+        width: 60px;
+        margin-bottom: 0;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--cor-dark);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* No seu arquivo excel.css */
+
+.cabecalho {
+    /* Garante que o cabeçalho fique em uma camada base */
+    position: relative; 
+    z-index: 10;
+}
+
+.sidebar {
+    /* Define um z-index maior que o do cabeçalho */
+    position: relative; 
+    z-index: 100; 
+    
+    /* Mantém as outras propriedades que você já tem */
+    background: linear-gradient(180deg, #FF0000 0%, #0000FF 100%);
+    width: 250px;
+    /* ... restante do código ... */
+}
+
+.dashboard {
+    flex: 1; /* Garante que ele ocupe o resto do espaço disponível */
+    padding: 30px;
+    background-color: #f0f2f5;
+    overflow-y: auto;
+    /* REMOVA qualquer margin-left que tenha colocado aqui */
+}
+
+.container-principal {
+    display: flex;
+    flex: 1;
+    width: 100%; /* Garante que o container ocupe a largura total */
+    height: calc(100vh - 80px); /* Ajusta a altura descontando o cabeçalho se necessário */
+    overflow: hidden;
+}
+
+/* ... seus estilos normais de tela continuam aqui ... */
+
+/* --- ESTILOS PARA IMPRESSÃO ORIGINAIS --- */
+@media print {
+
+    .cabecalho,
+    .sidebar,
+    .upload-section,
+    .rodape-sidebar,
+    #btn-imprimir {
+        display: none !important;
+    }
+
+    body,
+    .container-principal,
+    .dashboard {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: white !important;
+    }
+
+    .dashboard {
+        padding: 0.5cm !important;
+    }
+
+    table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        font-size: 7.5pt !important;
+        /* Fonte levemente menor ajuda na altura */
+    }
+
+    th,
+    td {
+        border: 1px solid #000 !important;
+        padding: 2px 4px !important;
+        /* Padding mínimo para impressão */
+        line-height: 1 !important;
+    }
+
+    th {
+        background-color: #f0f0f0 !important;
+        color: #000 !important;
+    }
+
+    /* Forçar cores de fundo na impressão */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background-image: none !important;
+        /* Mata o gradiente da sidebar */
+    }
+
+    
+
+}
