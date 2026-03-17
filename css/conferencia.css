@@ -328,6 +328,35 @@ tr:nth-child(even) {
         /* Mata o gradiente da sidebar */
     }
 
-    
+    table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important; /* Garante que a largura das colunas seja respeitada */
+    }
+
+    th, td {
+        border: 1px solid #000 !important;
+        height: 18pt !important; 
+        padding: 0 4px !important;
+        font-size: 8pt !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+    }
+
+    /* Larguras ajustadas incluindo a coluna de numeração */
+    th:nth-child(1) { width: 5%; text-align: center; }  /* Nº */
+    th:nth-child(2) { width: 15%; }                     /* Pedido */
+    th:nth-child(3) { width: 15%; }                     /* Código */
+    th:nth-child(4) { width: 35%; }                     /* Descrição */
+    th:nth-child(5) { width: 10%; }                     /* Qtd */
+    th:nth-child(6) { width: 10%; }                     /* Caixa */
+    th:nth-child(7) { width: 10%; }                     /* Conf. */
+
+    /* Estilo visual para a coluna de numeração na impressão */
+    td:first-child {
+        background-color: #eee !important;
+        font-weight: bold !important;
+        text-align: center !important;
+    }
 
 }

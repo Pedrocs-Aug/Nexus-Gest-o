@@ -56,6 +56,7 @@ function renderizarTabela(dados, totalVolumes) {
         <table>
             <thead>
                 <tr>
+                    <th style="width: 30px; text-align: center;">Nº</th>
                     <th>PEDIDO</th>
                     <th>CÓDIGO</th>
                     <th>DESCRIÇÃO</th>
@@ -67,10 +68,14 @@ function renderizarTabela(dados, totalVolumes) {
             <tbody>
     `;
 
-    dados.forEach(item => {
+    // O segundo parâmetro do forEach (index) nos dá o número da linha
+    dados.forEach((item, index) => {
         const estiloLinha = item.destaque ? 'style="font-weight: 700; background-color: #fff9e6;"' : '';
         
         html += `<tr ${estiloLinha}>`;
+        // Adiciona a célula com o número da linha (index + 1)
+        html += `<td style="text-align: center; background-color: #f8f9fa; color: #666; font-weight: bold;">${index + 1}</td>`;
+        
         item.valores.forEach(celula => {
             html += `<td>${celula}</td>`;
         });
