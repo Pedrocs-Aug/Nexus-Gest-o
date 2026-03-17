@@ -2,12 +2,12 @@
 let dadosGlobais = [];
 let volumesGlobais = 0;
 
-document.getElementById('input-excel').addEventListener('change', function(e) {
+document.getElementById('input-excel').addEventListener('change', function (e) {
     const file = e.target.files[0];
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = function (e) {
         try {
             const data = e.target.result;
             const workbook = XLSX.read(data, { type: 'binary', codepage: 65001 });
@@ -21,7 +21,7 @@ document.getElementById('input-excel').addEventListener('change', function(e) {
                 const pedido = String(linha[2] || "").trim();
                 const caixa = String(linha[6] || "").trim();
                 if (caixa !== "") listaCaixas.push(caixa);
-                
+
                 return {
                     valores: [pedido, String(linha[4]), String(linha[5]), String(linha[7]), caixa, ""],
                     destaque: pedido.toLowerCase().startsWith('u') || pedido.toLowerCase().startsWith('b')
@@ -39,9 +39,9 @@ document.getElementById('input-excel').addEventListener('change', function(e) {
 });
 
 // LÓGICA DE BUSCA MULTICRITÉRIO
-document.getElementById('input-busca').addEventListener('input', function(e) {
+document.getElementById('input-busca').addEventListener('input', function (e) {
     const termoBusca = e.target.value.toLowerCase().trim();
-    
+
     if (!termoBusca) {
         renderizarTabela(dadosGlobais, volumesGlobais);
         return;
@@ -53,7 +53,7 @@ document.getElementById('input-busca').addEventListener('input', function(e) {
     const dadosFiltrados = dadosGlobais.filter(item => {
         // Transforma todos os valores da linha em uma única string para busca
         const conteudoLinha = item.valores.join(" ").toLowerCase();
-        
+
         // Verifica se TODOS os termos digitados estão presentes na linha (Lógica AND)
         return termos.every(termo => conteudoLinha.includes(termo));
     });
@@ -108,9 +108,38 @@ function renderizarTabela(dados, totalVolumes) {
 
     html += '</tbody></table>';
     container.innerHTML = html;
-    
-    if(btnImprimir) {
+
+    if (btnImprimir) {
         btnImprimir.style.display = 'inline-block';
-        btnImprimir.onclick = function() { window.print(); };
+        btnImprimir.onclick = function () { window.print(); };
     }
 }
+
+// EVENTO PARA EXPORTAR EXCEL
+document.getElementById('btn-exportar-excel').addEventListener('click', function () {
+    const tabela = document.querySelector("#tabela-container table");
+
+    if (!tabela) {
+        alert("Por favor, importe um arquivo primeiro para gerar os dados.");
+        return;
+    }
+
+    // Converte a tabela visível (inclusive se estiver filtrada) para Excel
+    const wb = XLSX.utils.table_to_book(tabela, { sheet: "Conferência" });
+
+    // Nome do arquivo com a data atual
+    const data = new Date().toLocaleDateString('pt-BR').replace(/\//g, '-');
+    XLSX.writeFile(wb, `Nexus_Conferencia_${data}.xlsx`);
+});
+
+// EVENTO PARA IMPRIMIR PDF (Aproveitando a função nativa do navegador)
+document.getElementById('btn-imprimir').addEventListener('click', function () {
+    const tabela = document.querySelector("#tabela-container table");
+
+    if (!tabela) {
+        alert("Não há dados para imprimir. Importe um arquivo primeiro.");
+        return;
+    }
+
+    window.print();
+});
