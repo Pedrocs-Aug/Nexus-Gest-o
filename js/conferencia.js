@@ -132,14 +132,3 @@ document.getElementById('btn-exportar-excel').addEventListener('click', function
     XLSX.writeFile(wb, `Nexus_Conferencia_${data}.xlsx`);
 });
 
-// EVENTO PARA IMPRIMIR PDF (Aproveitando a função nativa do navegador)
-document.getElementById('btn-imprimir').addEventListener('click', function () {
-    const tabela = document.querySelector("#tabela-container table");
-
-    if (!tabela) {
-        alert("Não há dados para imprimir. Importe um arquivo primeiro.");
-        return;
-    }
-
-    window.print();
-});
