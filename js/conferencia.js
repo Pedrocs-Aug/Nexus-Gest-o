@@ -1,9 +1,12 @@
+// Variável global para manter os dados após o upload
+let dadosGlobais = [];
+let volumesGlobais = 0;
+
 document.getElementById('input-excel').addEventListener('change', function(e) {
     const file = e.target.files[0];
     if (!file) return;
 
     const reader = new FileReader();
-
     reader.onload = function(e) {
         try {
             const data = e.target.result;
@@ -14,33 +17,58 @@ document.getElementById('input-excel').addEventListener('change', function(e) {
             const linhasDados = matriz.slice(1);
             const listaCaixas = [];
 
-            const dadosTratados = linhasDados.map(linha => {
+            dadosGlobais = linhasDados.map(linha => {
                 const pedido = String(linha[2] || "").trim();
                 const caixa = String(linha[6] || "").trim();
-
-                if (caixa !== "") {
-                    listaCaixas.push(caixa);
-                }
+                if (caixa !== "") listaCaixas.push(caixa);
                 
                 return {
-                    valores: [pedido, linha[4], linha[5], linha[7], caixa, ""],
+                    valores: [pedido, String(linha[4]), String(linha[5]), String(linha[7]), caixa, ""],
                     destaque: pedido.toLowerCase().startsWith('u') || pedido.toLowerCase().startsWith('b')
                 };
             });
 
-            renderizarTabela(dadosTratados, [...new Set(listaCaixas)].length);
+            volumesGlobais = [...new Set(listaCaixas)].length;
+            renderizarTabela(dadosGlobais, volumesGlobais);
         } catch (erro) {
             console.error(erro);
             alert("Erro ao processar o arquivo.");
         }
     };
-
     reader.readAsBinaryString(file);
+});
+
+// LÓGICA DE BUSCA MULTICRITÉRIO
+document.getElementById('input-busca').addEventListener('input', function(e) {
+    const termoBusca = e.target.value.toLowerCase().trim();
+    
+    if (!termoBusca) {
+        renderizarTabela(dadosGlobais, volumesGlobais);
+        return;
+    }
+
+    // Separa os termos por espaço
+    const termos = termoBusca.split(" ").filter(t => t !== "");
+
+    const dadosFiltrados = dadosGlobais.filter(item => {
+        // Transforma todos os valores da linha em uma única string para busca
+        const conteudoLinha = item.valores.join(" ").toLowerCase();
+        
+        // Verifica se TODOS os termos digitados estão presentes na linha (Lógica AND)
+        return termos.every(termo => conteudoLinha.includes(termo));
+    });
+
+    renderizarTabela(dadosFiltrados, volumesGlobais);
 });
 
 function renderizarTabela(dados, totalVolumes) {
     const container = document.getElementById('tabela-container');
     const btnImprimir = document.getElementById('btn-imprimir');
+
+    if (dados.length === 0) {
+        container.innerHTML = "<p style='padding:20px; text-align:center;'>Nenhum item encontrado.</p>";
+        return;
+    }
 
     let html = `
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #ddd; padding-bottom: 10px;">
@@ -68,14 +96,10 @@ function renderizarTabela(dados, totalVolumes) {
             <tbody>
     `;
 
-    // O segundo parâmetro do forEach (index) nos dá o número da linha
     dados.forEach((item, index) => {
         const estiloLinha = item.destaque ? 'style="font-weight: 700; background-color: #fff9e6;"' : '';
-        
         html += `<tr ${estiloLinha}>`;
-        // Adiciona a célula com o número da linha (index + 1)
         html += `<td style="text-align: center; background-color: #f8f9fa; color: #666; font-weight: bold;">${index + 1}</td>`;
-        
         item.valores.forEach(celula => {
             html += `<td>${celula}</td>`;
         });

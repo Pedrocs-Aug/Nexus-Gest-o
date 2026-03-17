@@ -85,11 +85,30 @@ body {
 /* Estilos iniciais para o Input de Arquivo */
 .upload-section {
     background: white;
-    padding: 20px;
+    padding: 15px 20px;
+    /* Reduzido de 20px para 15px no topo/base */
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    /* Reduzido de 20px para 15px */
     text-align: center;
+}
+
+/* Ajustando o espaçamento da barra de pesquisa */
+.search-container {
+    margin-top: 10px !important;
+    /* Reduzido de 20px para 10px */
+    margin-bottom: 10px;
+}
+
+/* Ajustando o espaçamento dos botões */
+.botoes-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    /* Reduzido de 20px para 10px */
 }
 
 /* Estilo da Tabela que será gerada */
@@ -124,13 +143,16 @@ tr:hover {
 
 /* excel.css */
 .container-principal {
-    display: flex; /* Alinha sidebar e dashboard lado a lado */
+    display: flex;
+    /* Alinha sidebar e dashboard lado a lado */
     width: 100%;
 }
 
 .dashboard {
-    flex: 1; /* Ocupa todo o espaço que sobrar, nem mais, nem menos */
-    margin-left: 0; /* Zere as margens manuais */
+    flex: 1;
+    /* Ocupa todo o espaço que sobrar, nem mais, nem menos */
+    margin-left: 0;
+    /* Zere as margens manuais */
 }
 
 /* Container dos botões */
@@ -158,7 +180,7 @@ tr:hover {
 .btn-importar:hover {
     background-color: #3d4852;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Esconde o input de arquivo original */
@@ -169,7 +191,8 @@ tr:hover {
 /* Estilizando o botão de Imprimir */
 .btn-imprimir-estilo {
     padding: 12px 24px;
-    background: #28a745; /* Verde sucesso */
+    background: #28a745;
+    /* Verde sucesso */
     color: white;
     border: none;
     border-radius: 8px;
@@ -177,7 +200,8 @@ tr:hover {
     font-weight: bold;
     font-family: 'Inter', sans-serif;
     transition: var(--transition);
-    display: none; /* O JS vai mostrar quando o arquivo for carregado */
+    display: none;
+    /* O JS vai mostrar quando o arquivo for carregado */
 }
 
 .btn-imprimir-estilo:hover {
@@ -188,7 +212,8 @@ tr:hover {
 
 /* Efeito quando um arquivo é selecionado (opcional via JS) */
 .btn-importar.selecionado {
-    background: #e81d1d; /* Cor primária Nexus */
+    background: #e81d1d;
+    /* Cor primária Nexus */
 }
 
 /* --- RESPONSIVIDADE --- */
@@ -236,15 +261,15 @@ tr:nth-child(even) {
 
 .cabecalho {
     /* Garante que o cabeçalho fique em uma camada base */
-    position: relative; 
+    position: relative;
     z-index: 10;
 }
 
 .sidebar {
     /* Define um z-index maior que o do cabeçalho */
-    position: relative; 
-    z-index: 100; 
-    
+    position: relative;
+    z-index: 100;
+
     /* Mantém as outras propriedades que você já tem */
     background: linear-gradient(180deg, #FF0000 0%, #0000FF 100%);
     width: 250px;
@@ -252,7 +277,8 @@ tr:nth-child(even) {
 }
 
 .dashboard {
-    flex: 1; /* Garante que ele ocupe o resto do espaço disponível */
+    flex: 1;
+    /* Garante que ele ocupe o resto do espaço disponível */
     padding: 30px;
     background-color: #f0f2f5;
     overflow-y: auto;
@@ -262,8 +288,10 @@ tr:nth-child(even) {
 .container-principal {
     display: flex;
     flex: 1;
-    width: 100%; /* Garante que o container ocupe a largura total */
-    height: calc(100vh - 80px); /* Ajusta a altura descontando o cabeçalho se necessário */
+    width: 100%;
+    /* Garante que o container ocupe a largura total */
+    height: calc(100vh - 80px);
+    /* Ajusta a altura descontando o cabeçalho se necessário */
     overflow: hidden;
 }
 
@@ -331,12 +359,14 @@ tr:nth-child(even) {
     table {
         width: 100% !important;
         border-collapse: collapse !important;
-        table-layout: fixed !important; /* Garante que a largura das colunas seja respeitada */
+        table-layout: fixed !important;
+        /* Garante que a largura das colunas seja respeitada */
     }
 
-    th, td {
+    th,
+    td {
         border: 1px solid #000 !important;
-        height: 18pt !important; 
+        height: 18pt !important;
         padding: 0 4px !important;
         font-size: 8pt !important;
         white-space: nowrap !important;
@@ -344,13 +374,42 @@ tr:nth-child(even) {
     }
 
     /* Larguras ajustadas incluindo a coluna de numeração */
-    th:nth-child(1) { width: 5%; text-align: center; }  /* Nº */
-    th:nth-child(2) { width: 15%; }                     /* Pedido */
-    th:nth-child(3) { width: 15%; }                     /* Código */
-    th:nth-child(4) { width: 35%; }                     /* Descrição */
-    th:nth-child(5) { width: 10%; }                     /* Qtd */
-    th:nth-child(6) { width: 10%; }                     /* Caixa */
-    th:nth-child(7) { width: 10%; }                     /* Conf. */
+    th:nth-child(1) {
+        width: 5%;
+        text-align: center;
+    }
+
+    /* Nº */
+    th:nth-child(2) {
+        width: 15%;
+    }
+
+    /* Pedido */
+    th:nth-child(3) {
+        width: 15%;
+    }
+
+    /* Código */
+    th:nth-child(4) {
+        width: 35%;
+    }
+
+    /* Descrição */
+    th:nth-child(5) {
+        width: 10%;
+    }
+
+    /* Qtd */
+    th:nth-child(6) {
+        width: 10%;
+    }
+
+    /* Caixa */
+    th:nth-child(7) {
+        width: 10%;
+    }
+
+    /* Conf. */
 
     /* Estilo visual para a coluna de numeração na impressão */
     td:first-child {
