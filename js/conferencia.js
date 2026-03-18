@@ -132,3 +132,31 @@ document.getElementById('btn-exportar-excel').addEventListener('click', function
     XLSX.writeFile(wb, `Nexus_Conferencia_${data}.xlsx`);
 });
 
+// LÓGICA DE FILTROS RÁPIDOS (U e B)
+function filtrarPorLetra(letra) {
+    if (!dadosGlobais.length) {
+        alert("Importe um arquivo primeiro!");
+        return;
+    }
+
+    if (letra === 'todos') {
+        renderizarTabela(dadosGlobais, volumesGlobais);
+        return;
+    }
+
+    const filtrados = dadosGlobais.filter(item => {
+        const pedido = item.valores[0].toLowerCase(); // O pedido está no índice 0
+        return pedido.startsWith(letra.toLowerCase());
+    });
+
+    // Recalcula volumes apenas para os itens visíveis
+    const listaCaixasFiltradas = filtrados.map(i => i.valores[4]).filter(c => c !== "");
+    const volumesFiltrados = [...new Set(listaCaixasFiltradas)].length;
+
+    renderizarTabela(filtrados, volumesFiltrados);
+}
+
+// Eventos dos botões
+document.getElementById('btn-filtro-u').addEventListener('click', () => filtrarPorLetra('u'));
+document.getElementById('btn-filtro-b').addEventListener('click', () => filtrarPorLetra('b'));
+document.getElementById('btn-filtro-todos').addEventListener('click', () => filtrarPorLetra('todos'));

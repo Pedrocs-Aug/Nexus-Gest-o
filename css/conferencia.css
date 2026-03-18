@@ -256,6 +256,33 @@ tr:hover {
     font-weight: 600;
 }
 
+.btn-filtro {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: var(--transition);
+}
+
+.btn-filtro:hover {
+    background-color: var(--cor-primaria);
+    color: white;
+    border-color: var(--cor-primaria);
+}
+
+.btn-todos {
+    background-color: #eee;
+}
+
+/* Estilo para quando o filtro estiver ativo */
+.btn-filtro.ativo {
+    background-color: var(--cor-dark);
+    color: white;
+}
+
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 900px) {
     .container-principal {

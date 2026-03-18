@@ -40,8 +40,15 @@
         </nav>
 
         <section class="dashboard">
+
             <div class="upload-section">
                 <h2>Importar Relatório Excel</h2>
+                <div class="filtros-rapidos"
+                style="display: flex; gap: 10px; justify-content: center; margin-bottom: 15px;">
+                <button id="btn-filtro-u" class="btn-filtro">📦 Ver Pedidos "U"</button>
+                <button id="btn-filtro-b" class="btn-filtro">📦 Ver Pedidos "B"</button>
+                <button id="btn-filtro-todos" class="btn-filtro btn-todos">🔄 Ver Todos</button>
+            </div>
                 <p>Selecione um arquivo .csv para formatar a tabela automaticamente.</p>
                 <div class="search-container" style="margin-top: 20px;">
                     <input type="text" id="input-busca"
