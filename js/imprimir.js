@@ -61,7 +61,7 @@ btnImprimir.addEventListener('click', async () => {
         const logoUrl = '../img/img-menus/nexus_logo.png';
         const logoBytes = await fetch(logoUrl).then(res => res.arrayBuffer());
         const nexusLogo = await pdfMesclado.embedPng(logoBytes);
-        const logoDims = nexusLogo.scale(0.2); // Ajuste de escala do logo
+        const logoDims = nexusLogo.scale(0.1); // Ajuste de escala do logo
 
         // 1. Mesclar os PDFs enviados
         for (const arquivo of arquivosSelecionados) {
