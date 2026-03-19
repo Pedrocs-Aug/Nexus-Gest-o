@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Gestão | Painel de sites</title>
+
+    <link rel="icon" type="image/png" href="../img/nexus_logo.png">
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/imprimir.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <h1>NEXUS</h1>
+        <p>gestão</p>
+    </header>
+
+    <main class="container-principal">
+        <nav class="sidebar">
+            <a href="../index.html">
+                <img src="../img/img-menus/nexus_logo.png" alt="Nexus Logo" class="logo">
+            </a>
+            <ul class="menu">
+                <li><a href="../index.html" class="btn-nav">Início</a></li>
+                <li><a href="../html/sobre.html" class="btn-nav">Sobre</a></li>
+                <li><a href="#" class="btn-nav">Serviços</a></li>
+                <li><a href="../html/contato.html" class="btn-nav">Contato</a></li>
+            </ul>
+            <footer class="rodape-sidebar">
+                <p>&copy; 2026 Nexus Gestão.</p>
+                <p>Todos os direitos reservados.</p>
+                <p>Desenvolvido por Pedro Augusto</p>
+            </footer>
+        </nav>
+
+        <section class="dashboard">
+            <div class="upload-container" id="dropzone">
+                <div class="upload-icon">📄</div>
+                <h2>Imprimir Múltiplos PDFs</h2>
+                <p>Arraste os arquivos aqui ou clique no botão abaixo</p>
+
+                <label for="input-pdf" class="btn-selecionar">Selecionar Arquivos</label>
+                <input type="file" id="input-pdf" multiple accept="application/pdf">
+            </div>
+
+            <div id="lista-arquivos" class="file-list">
+            </div>
+
+            <button id="btn-imprimir-tudo" class="btn-gerar-print">
+                Mesclar e Abrir Fila de Impressão
+            </button>
+        </section>
+        <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+        <script src="../js/imprimir.js"></script>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+/* Importação de Fonte */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --cor-primaria: #e81d1d;
+    --cor-dark: #2c343a;
+    --cor-bg: #f8f9fa;
+    --cor-card: #ffffff;
+    --cor-texto: #333333;
+    --border-color: #ddd;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--cor-bg);
+    color: var(--cor-texto);
+    margin: 0;
+}
+
+/* --- ESTRUTURA PRINCIPAL --- */
+.container-principal {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* --- ÁREA DE CONTEÚDO (DASHBOARD) --- */
+.dashboard {
+    flex: 1;
+    padding: 40px;
+    background-color: #f0f2f5;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- SEÇÃO DE UPLOAD --- */
+.upload-container {
+    background: white;
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 2px dashed #ccc;
+    transition: var(--transition);
+}
+
+.upload-container.dragover {
+    border-color: var(--cor-primaria);
+    background-color: #fff5f5;
+}
+
+.upload-icon {
+    font-size: 3rem;
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+}
+
+.btn-selecionar {
+    background-color: var(--cor-dark);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 15px;
+    transition: var(--transition);
+}
+
+.btn-selecionar:hover {
+    background-color: var(--cor-primaria);
+}
+
+#input-pdf { display: none; }
+
+/* --- LISTA DE ARQUIVOS E BOTÃO IMPRIMIR --- */
+.file-list {
+    margin-top: 25px;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.file-item {
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #eee;
+}
+
+.btn-gerar-print {
+    background-color: #28a745;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    display: none; /* Aparece via JS */
+    transition: var(--transition);
+}
+
+.btn-gerar-print:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 900px) {
+    .container-principal { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; flex-direction: row; padding: 1rem; }
+    .logo { width: 50px; margin-bottom: 0; }
+    .menu { flex-direction: row; flex: 1; justify-content: center; }
+    .rodape-sidebar { display: none; }
+}
+
+/* Estilo para o índice numérico */
+.file-index {
+    background-color: var(--cor-dark);
+    color: white;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+/* Ajuste no item da lista para alinhar tudo */
+.file-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #eee;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    flex: 1; /* Faz o nome do arquivo ocupar o espaço restante */
+}
