@@ -20,7 +20,7 @@ function adicionarArquivos(files) {
 
 function atualizarInterface() {
     listaArquivos.innerHTML = '';
-    
+
     arquivosSelecionados.forEach((file, index) => {
         const item = document.createElement('div');
         item.className = 'file-item';
@@ -74,12 +74,12 @@ btnImprimir.addEventListener('click', async () => {
         // 2. CRIAR PÁGINA DE RELATÓRIO FINAL
         const paginaRelatorio = pdfMesclado.addPage([595.28, 841.89]); // A4
         const { width, height } = paginaRelatorio.getSize();
-        
+
         const fontNegrito = await pdfMesclado.embedStandardFont(PDFLib.StandardFonts.HelveticaBold);
         const fontNormal = await pdfMesclado.embedStandardFont(PDFLib.StandardFonts.Helvetica);
 
         // --- POSICIONAMENTO ---
-        
+
         // 1. Logo (Bem no topo)
         paginaRelatorio.drawImage(nexusLogo, {
             x: 50,
@@ -94,7 +94,7 @@ btnImprimir.addEventListener('click', async () => {
             y: height - 150, // Espaço confortável abaixo do logo
             size: 18,
             font: fontNegrito,
-            color: PDFLib.rgb(0.91, 0.11, 0.11), 
+            color: PDFLib.rgb(0.91, 0.11, 0.11),
         });
 
         // 3. Informações (Descendo o Y para não encavalar)
@@ -104,16 +104,35 @@ btnImprimir.addEventListener('click', async () => {
         paginaRelatorio.drawText(`Total de Documentos: ${arquivosSelecionados.length}`, { x: 50, y: height - 210, size: 10, font: fontNormal });
 
         // 4. Lista de Arquivos (Começando mais abaixo)
-        let yPos = height - 250; // Começa a lista com um respiro maior
+        let yPos = height - 250;
         paginaRelatorio.drawText('ARQUIVOS PROCESSADOS:', { x: 50, y: yPos, size: 12, font: fontNegrito });
-        yPos -= 25; // Espaço entre o título da lista e o primeiro item
+        yPos -= 25;
 
-        arquivosSelecionados.forEach((file, index) => {
-            if (yPos > 60) {
-                paginaRelatorio.drawText(`${index + 1}. ${file.name}`, { x: 60, y: yPos, size: 10, font: fontNormal });
-                yPos -= 18; // Espaçamento entre linhas da lista
+        // Criamos uma variável de referência para a página atual, para podermos trocar se necessário
+        let paginaAtual = paginaRelatorio;
+
+        for (let i = 0; i < arquivosSelecionados.length; i++) {
+            const file = arquivosSelecionados[i];
+
+            // Verifica se o próximo item vai ultrapassar a margem inferior (60)
+            if (yPos < 60) {
+                // Cria uma nova página A4
+                paginaAtual = pdfMesclado.addPage([595.28, 841.89]);
+                yPos = height - 50; // Reinicia o cursor no topo da nova página
+
+                paginaAtual.drawText('(Continuação...)', { x: 50, y: yPos, size: 10, font: fontNegrito });
+                yPos -= 30;
             }
-        });
+
+            paginaAtual.drawText(`${i + 1}. ${file.name}`, {
+                x: 60,
+                y: yPos,
+                size: 10,
+                font: fontNormal
+            });
+
+            yPos -= 18; // Espaçamento entre linhas
+        }
 
         // 3. Gerar e Abrir
         const pdfFinalBytes = await pdfMesclado.save();
