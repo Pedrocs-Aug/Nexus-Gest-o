@@ -326,23 +326,6 @@ tr:nth-child(even) {
 
 /* No seu arquivo excel.css */
 
-.cabecalho {
-    /* Garante que o cabeçalho fique em uma camada base */
-    position: relative;
-    z-index: 10;
-}
-
-.sidebar {
-    /* Define um z-index maior que o do cabeçalho */
-    position: relative;
-    z-index: 100;
-
-    /* Mantém as outras propriedades que você já tem */
-    background: linear-gradient(180deg, #FF0000 0%, #0000FF 100%);
-    width: 250px;
-    /* ... restante do código ... */
-}
-
 .dashboard {
     flex: 1;
     /* Garante que ele ocupe o resto do espaço disponível */

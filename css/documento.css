@@ -20,25 +20,6 @@ body {
 }
 
 /* Header */
-.cabecalho {
-    background-color: var(--cor-dark);
-    color: white;
-    padding: 1.2rem;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.cabecalho h1 {
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin: 0;
-}
-
-.cabecalho p {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
 
 /* Layout Principal */
 .container-principal {
@@ -48,16 +29,6 @@ body {
     min-height: 0;
 }
 
-/* Sidebar */
-.sidebar {
-    background: linear-gradient(180deg, var(--cor-primaria) 0%, var(--cor-primaria-dark) 100%);
-    width: 250px;
-    height: 100%; /* Ocupa 100% da área do container-principal */
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    flex-shrink: 0; /* Impede que a sidebar "esmague" no zoom */
-}
 
 .logo {
     width: 100%;
@@ -184,7 +155,6 @@ body {
 
 /* RESPONSIVIDADE */
 @media (max-width: 1024px) {
-    .sidebar { width: 200px; }
     .card { max-width: 30%; }
 }
 
@@ -192,16 +162,6 @@ body {
     .container-principal {
         flex-direction: column;
     }
-
-    .sidebar {
-        width: 100%;
-        height: auto;
-        padding: 15px;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
     .logo {
         width: 60px;
     }
@@ -346,18 +306,10 @@ body {
     }
 }
 /* Esconder rodapé na impressão para não sujar o documento A4 */
-@media print {
-    .rodape-sidebar {
-        display: none !important;
-    }
-}
+
 
 /* Ajuste para Mobile */
-@media (max-width: 900px) {
-    .rodape-sidebar {
-        display: none; /* Geralmente ocultamos na barra horizontal do mobile */
-    }
-}
+
 
 /* Container das opções que aparecem no hover */
 .card-selection {
