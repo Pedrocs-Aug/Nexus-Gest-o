@@ -3,6 +3,7 @@ const inputPdf = document.getElementById('input-pdf');
 const listaArquivos = document.getElementById('lista-arquivos');
 const btnImprimir = document.getElementById('btn-imprimir-tudo');
 const dropzone = document.getElementById('dropzone');
+const btnLimpar = document.getElementById('btn-limpar-fila');
 
 let arquivosSelecionados = [];
 
@@ -36,6 +37,10 @@ function atualizarInterface() {
         `;
         listaArquivos.appendChild(item);
     });
+
+    const temArquivos = arquivosSelecionados.length > 0;
+    btnImprimir.style.display = temArquivos ? 'block' : 'none';
+    btnLimpar.style.display = temArquivos ? 'block' : 'none';
 
     btnImprimir.style.display = arquivosSelecionados.length > 0 ? 'block' : 'none';
 }
@@ -161,4 +166,12 @@ dropzone.addEventListener('drop', (e) => {
     e.preventDefault();
     dropzone.classList.remove('dragover');
     adicionarArquivos(e.dataTransfer.files);
+});
+
+btnLimpar.addEventListener('click', () => {
+    if (confirm('Deseja realmente remover todos os arquivos da fila?')) {
+        arquivosSelecionados = []; // Esvazia o array
+        inputPdf.value = '';       // Reseta o input de arquivo
+        atualizarInterface();      // Atualiza a tela
+    }
 });

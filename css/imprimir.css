@@ -47,7 +47,7 @@ body {
     max-width: 600px;
     padding: 40px;
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     text-align: center;
     border: 2px dashed #ccc;
     transition: var(--transition);
@@ -80,7 +80,9 @@ body {
     background-color: var(--cor-primaria);
 }
 
-#input-pdf { display: none; }
+#input-pdf {
+    display: none;
+}
 
 /* --- LISTA DE ARQUIVOS E BOTÃO IMPRIMIR --- */
 .file-list {
@@ -111,7 +113,8 @@ body {
     font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
-    display: none; /* Aparece via JS */
+    display: none;
+    /* Aparece via JS */
     transition: var(--transition);
 }
 
@@ -122,11 +125,31 @@ body {
 
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 900px) {
-    .container-principal { flex-direction: column; }
-    .sidebar { width: 100%; height: auto; flex-direction: row; padding: 1rem; }
-    .logo { width: 50px; margin-bottom: 0; }
-    .menu { flex-direction: row; flex: 1; justify-content: center; }
-    .rodape-sidebar { display: none; }
+    .container-principal {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        padding: 1rem;
+    }
+
+    .logo {
+        width: 50px;
+        margin-bottom: 0;
+    }
+
+    .menu {
+        flex-direction: row;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .rodape-sidebar {
+        display: none;
+    }
 }
 
 /* Estilo para o índice numérico */
@@ -159,5 +182,32 @@ body {
 .file-info {
     display: flex;
     align-items: center;
-    flex: 1; /* Faz o nome do arquivo ocupar o espaço restante */
+    flex: 1;
+    /* Faz o nome do arquivo ocupar o espaço restante */
+}
+
+.acoes-botoes {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.btn-limpar {
+    background-color: transparent;
+    color: #666;
+    padding: 12px 25px;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: none;
+    /* Só aparece quando houver arquivos */
+}
+
+.btn-limpar:hover {
+    background-color: #f0f0f0;
+    color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
 }
