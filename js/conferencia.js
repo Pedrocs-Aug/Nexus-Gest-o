@@ -99,10 +99,31 @@ function renderizarTabela(dados, totalVolumes) {
     dados.forEach((item, index) => {
         const estiloLinha = item.destaque ? 'style="font-weight: 700; background-color: #fff9e6;"' : '';
         html += `<tr ${estiloLinha}>`;
+
+        // Coluna Nº
         html += `<td style="text-align: center; background-color: #f8f9fa; color: #666; font-weight: bold;">${index + 1}</td>`;
-        item.valores.forEach(celula => {
-            html += `<td>${celula}</td>`;
+
+        // Outras colunas
+        item.valores.forEach((celula, idx) => {
+            if (idx === 1) { // COLUNA DE CÓDIGO - Onde entra o botão igual ao de pneus
+                html += `
+                <td class="coluna-codigo-copy">
+                    <div class="celula-codigo-conteudo">
+                        <span>${celula}</span>
+                        <button class="btn-copiar-conferencia" onclick="copiarTexto('${celula}', this)" title="Copiar código">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </td>`;
+            } else {
+                // Demais colunas (Pedido, Descrição, Qtd, Caixa, Conf.)
+                html += `<td>${celula}</td>`;
+            }
         });
+
         html += `</tr>`;
     });
 
@@ -154,6 +175,29 @@ function filtrarPorLetra(letra) {
     const volumesFiltrados = [...new Set(listaCaixasFiltradas)].length;
 
     renderizarTabela(filtrados, volumesFiltrados);
+}
+
+function copiarTexto(texto, elemento) {
+    if (!texto || texto === "undefined") return;
+
+    navigator.clipboard.writeText(texto).then(() => {
+        // 1. Lógica do Toast (Alerta "Copiado")
+        const toast = document.getElementById('toast-container');
+        if (toast) {
+            toast.classList.add('mostrar'); // Usa 'mostrar' conforme seu CSS de pneus
+            setTimeout(() => toast.classList.remove('mostrar'), 2000);
+        }
+
+        // 2. Lógica Visual do Botão (Ficar verde)
+        if (elemento) {
+            elemento.classList.add('copiado'); // Adiciona a classe que define a cor verde
+            setTimeout(() => {
+                elemento.classList.remove('copiado');
+            }, 1000);
+        }
+    }).catch(err => {
+        console.error('Erro ao copiar: ', err);
+    });
 }
 
 // Eventos dos botões

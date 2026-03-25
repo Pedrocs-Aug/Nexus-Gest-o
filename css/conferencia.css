@@ -469,3 +469,166 @@ tr:nth-child(even) {
     }
 
 }
+
+/* Estilo do Toast (igual ao de pneus) */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-left: 4px solid #28a745;
+    z-index: 9999;
+}
+
+.toast-container.show {
+    opacity: 1;
+}
+
+/* Estilo do botão de copiar na tabela */
+.btn-copiar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.btn-copiar img {
+    width: 18px;
+}
+
+/* REGRA CRUCIAL: Esconder os botões e o toast na impressão */
+@media print {
+
+    .btn-copiar,
+    .toast-container {
+        display: none !important;
+    }
+}
+
+/* ============================================================
+   DESIGN DO BOTAO COPIAR (REPLICADO DE PNEUS)
+   ============================================================ */
+
+/* Container da célula para manter a grade da tabela intacta */
+.coluna-codigo-copy {
+    padding: 0 !important;
+    /* Remove padding da TD para a div interna ocupar tudo */
+}
+
+/* Div interna que faz o alinhamento flex na tela */
+.celula-codigo-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    /* Padding real da célula aqui */
+    box-sizing: border-box;
+}
+
+/* Link do código (se houver) */
+.celula-codigo-conteudo span {
+    color: #2c343a;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* O Botão - Design exato de pneus */
+.btn-copiar-conferencia {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    /* Cor cinza padrão */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 5px;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+/* Hover - Cor primária (vermelha) */
+.btn-copiar-conferencia:hover {
+    color: #e81d1d;
+    /* var(--cor-primaria) da Nexus */
+    background-color: #f8f8f8;
+    transform: scale(1.1);
+}
+
+/* --- CORREÇÃO PARA IMPRESSÃO --- */
+@media print {
+
+    /* 1. Esconde o botão e o toast */
+    .btn-copiar-conferencia,
+    #toast-container {
+        display: none !important;
+    }
+
+    /* 2. Remove o Flexbox da div interna para não quebrar a grade */
+    .celula-codigo-conteudo {
+        display: block !important;
+    }
+
+    /* 3. Restaura o alinhamento de texto padrão na impressão */
+    .celula-codigo-conteudo span {
+        display: inline !important;
+    }
+}
+
+/* Botão em estado normal */
+.btn-copiar-conferencia {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888; /* Cinza padrão */
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+/* Efeito ao passar o mouse */
+.btn-copiar-conferencia:hover {
+    color: #e31d1a; /* Vermelho Nexus */
+}
+
+/* ESTADO COPIADO (O que você pediu: Verde por 2 segundos) */
+.btn-copiar-conferencia.copiado {
+    color: #28a745 !important; /* Verde sucesso */
+    transform: scale(1.2);
+}
+
+/* Garante que o SVG mude de cor junto com o botão */
+.btn-copiar-conferencia svg {
+    stroke: currentColor;
+}
+
+/* Ajuste do Toast para garantir que ele apareça (Baseado no seu CSS de pneus) */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10000;
+}
+
+.toast-container.mostrar {
+    opacity: 1;
+    visibility: visible;
+}
