@@ -275,15 +275,20 @@ tr:hover { background-color: #f1f1f1; }
 
 /* --- IMPRESSÃO (ESTILOS FINAIS) --- */
 @media print {
-
+    /* 1. ESCONDER ELEMENTOS INTERNOS E INTERFACE */
     .cabecalho,
     .sidebar,
     .upload-section,
     .rodape-sidebar,
-    #btn-imprimir {
+    #btn-imprimir,
+    .btn-copiar,
+    .btn-copiar-conferencia,
+    .toast-container,
+    #toast-container {
         display: none !important;
     }
 
+    /* 2. CONFIGURAÇÃO DA PÁGINA E CONTÊINERES */
     body,
     .container-principal,
     .dashboard {
@@ -293,25 +298,34 @@ tr:hover { background-color: #f1f1f1; }
         margin: 0 !important;
         padding: 0 !important;
         background-color: white !important;
+        background-image: none !important; /* Remove gradientes/cores de fundo */
     }
 
     .dashboard {
         padding: 0.5cm !important;
     }
 
+    /* Forçar fidelidade de cores e fundos */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* 3. FORMATAÇÃO DA TABELA */
     table {
         width: 100% !important;
         border-collapse: collapse !important;
-        font-size: 7.5pt !important;
-        /* Fonte levemente menor ajuda na altura */
+        table-layout: fixed !important;
     }
 
-    th,
-    td {
+    th, td {
         border: 1px solid #000 !important;
-        padding: 2px 4px !important;
-        /* Padding mínimo para impressão */
+        padding: 0 4px !important;
+        font-size: 8pt !important; /* Padronizado conforme sua última regra */
         line-height: 1 !important;
+        height: 18pt !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
     }
 
     th {
@@ -319,105 +333,27 @@ tr:hover { background-color: #f1f1f1; }
         color: #000 !important;
     }
 
-    /* Forçar cores de fundo na impressão */
-    * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-
-    * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        background-image: none !important;
-        /* Mata o gradiente da sidebar */
-    }
-
-    table {
-        width: 100% !important;
-        border-collapse: collapse !important;
-        table-layout: fixed !important;
-        /* Garante que a largura das colunas seja respeitada */
-    }
-
-    th,
-    td {
-        border: 1px solid #000 !important;
-        height: 18pt !important;
-        padding: 0 4px !important;
-        font-size: 8pt !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-    }
-
-    /* Larguras ajustadas incluindo a coluna de numeração */
-    th:nth-child(1) {
-        width: 5%;
-        text-align: center;
-    }
-
-    /* Nº */
-    th:nth-child(2) {
-        width: 15%;
-    }
-
-    /* Pedido */
-    th:nth-child(3) {
-        width: 15%;
-    }
-
-    /* Código */
-    th:nth-child(4) {
-        width: 35%;
-    }
-
-    /* Descrição */
-    th:nth-child(5) {
-        width: 10%;
-    }
-
-    /* Qtd */
-    th:nth-child(6) {
-        width: 10%;
-    }
-
-    /* Caixa */
-    th:nth-child(7) {
-        width: 10%;
-    }
-
-    /* Conf. */
-
-    /* Estilo visual para a coluna de numeração na impressão */
+    /* Estilo da primeira coluna (Numeração) */
     td:first-child {
         background-color: #eee !important;
         font-weight: bold !important;
         text-align: center !important;
     }
 
-}
+    /* 4. AJUSTE DE LARGURA DAS COLUNAS */
+    th:nth-child(1) { width: 5%; text-align: center; }
+    th:nth-child(2) { width: 15%; }
+    th:nth-child(3) { width: 15%; }
+    th:nth-child(4) { width: 35%; }
+    th:nth-child(5) { width: 10%; }
+    th:nth-child(6) { width: 10%; }
+    th:nth-child(7) { width: 10%; }
 
-@media print {
-
-    .btn-copiar,
-    .toast-container {
-        display: none !important;
-    }
-}
-
-@media print {
-
-    /* 1. Esconde o botão e o toast */
-    .btn-copiar-conferencia,
-    #toast-container {
-        display: none !important;
-    }
-
-    /* 2. Remove o Flexbox da div interna para não quebrar a grade */
+    /* 5. CORREÇÃO DA CÉLULA DE CÓDIGO (BOTÃO COPIAR) */
     .celula-codigo-conteudo {
-        display: block !important;
+        display: block !important; /* Remove o flexbox */
     }
 
-    /* 3. Restaura o alinhamento de texto padrão na impressão */
     .celula-codigo-conteudo span {
         display: inline !important;
     }
