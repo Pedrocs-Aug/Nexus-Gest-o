@@ -1,4 +1,6 @@
-/* Importação de Fonte */
+/* ============================================================
+   CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root {
@@ -19,14 +21,16 @@ body {
     overflow: hidden;
     background-color: var(--cor-bg);
     color: var(--cor-texto);
+    margin: 0;
 }
 
 /* --- ESTRUTURA PRINCIPAL --- */
 .container-principal {
     display: flex;
     flex: 1;
-    height: 0;
-    min-height: 0;
+    height: calc(100vh - 80px); /* Ajuste considerando o cabeçalho */
+    width: 100%;
+    overflow: hidden;
 }
 
 /* --- SIDEBAR --- */
@@ -79,44 +83,107 @@ body {
     padding: 30px;
     background-color: #f0f2f5;
     overflow-y: auto;
-    /* Permite scroll se a tabela for grande */
 }
 
-/* Estilos iniciais para o Input de Arquivo */
 .upload-section {
     background: white;
     padding: 15px 20px;
-    /* Reduzido de 20px para 15px no topo/base */
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     margin-bottom: 15px;
-    /* Reduzido de 20px para 15px */
     text-align: center;
 }
 
-/* Ajustando o espaçamento da barra de pesquisa */
 .search-container {
-    margin-top: 10px !important;
-    /* Reduzido de 20px para 10px */
-    margin-bottom: 10px;
+    margin: 10px 0 !important;
 }
 
-/* Ajustando o espaçamento dos botões */
 .botoes-container {
     display: flex;
     gap: 15px;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
-    /* Reduzido de 20px para 10px */
+    margin-top: 15px;
 }
 
-/* Estilo da Tabela que será gerada */
+/* --- BOTÕES DE AÇÃO --- */
+.btn-importar {
+    background-color: var(--cor-dark);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    display: inline-block;
+}
+
+.btn-importar:hover {
+    background-color: #3d4852;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#input-excel { display: none; }
+
+.btn-excel-estilo {
+    background-color: #1d6f42;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-excel-estilo:hover {
+    background-color: #145a32;
+    transform: translateY(-2px);
+}
+
+.btn-imprimir-estilo {
+    background-color: #2c343a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    display: none; /* Mostrado via JS */
+}
+
+/* --- FILTROS RÁPIDOS --- */
+.btn-filtro {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: var(--transition);
+}
+
+.btn-filtro:hover, .btn-filtro.ativo {
+    background-color: var(--cor-primaria);
+    color: white;
+    border-color: var(--cor-primaria);
+}
+
+.btn-todos { background-color: #eee; }
+
+/* --- TABELA --- */
 .table-container {
     background: white;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
 }
 
 table {
@@ -137,217 +204,76 @@ td {
     border-bottom: 1px solid var(--border-color);
 }
 
-tr:hover {
-    background-color: #f1f1f1;
-}
+tr:nth-child(even) { background-color: #f2f2f2; }
+tr:hover { background-color: #f1f1f1; }
 
-/* excel.css */
-.container-principal {
+/* --- DESIGN BOTÃO COPIAR (REPLICADO PNEUS) --- */
+.coluna-codigo-copy { padding: 0 !important; }
+
+.celula-codigo-conteudo {
     display: flex;
-    /* Alinha sidebar e dashboard lado a lado */
-    width: 100%;
-}
-
-.dashboard {
-    flex: 1;
-    /* Ocupa todo o espaço que sobrar, nem mais, nem menos */
-    margin-left: 0;
-    /* Zere as margens manuais */
-}
-
-/* Container dos botões */
-.botoes-container {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-/* Estilizando o botão de Importar (Label) */
-.btn-importar {
-    background-color: var(--cor-dark);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: var(--transition);
-    border: 2px solid transparent;
-    display: inline-block;
-}
-
-.btn-importar:hover {
-    background-color: #3d4852;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Esconde o input de arquivo original */
-#input-excel {
-    display: none;
-}
-
-/* Estilizando o botão de Imprimir */
-.btn-imprimir-estilo {
-    padding: 12px 24px;
-    background: #28a745;
-    /* Verde sucesso */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+.celula-codigo-conteudo span {
+    color: #2c343a;
     font-weight: bold;
-    font-family: 'Inter', sans-serif;
-    transition: var(--transition);
-    display: none;
-    /* O JS vai mostrar quando o arquivo for carregado */
+    white-space: nowrap;
 }
 
-.btn-imprimir-estilo:hover {
-    background: #218838;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
-}
-
-/* Efeito quando um arquivo é selecionado (opcional via JS) */
-.btn-importar.selecionado {
-    background: #e81d1d;
-    /* Cor primária Nexus */
-}
-
-.botoes-container {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
-}
-
-/* Estilo específico para o novo botão de Excel */
-.btn-excel-estilo {
-    background-color: #1d6f42;
-    /* Verde Excel */
-    color: white;
-    padding: 10px 20px;
+.btn-copiar-conferencia {
+    background: none;
     border: none;
-    border-radius: 8px;
     cursor: pointer;
-    font-weight: 600;
-    display: flex;
+    color: #888;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
+    transition: all 0.2s ease;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.btn-copiar-conferencia:hover { color: #e31d1a; }
+.btn-copiar-conferencia.copiado { 
+    color: #28a745 !important; 
+    transform: scale(1.2); 
+}
+.btn-copiar-conferencia svg { stroke: currentColor; }
+
+/* --- TOAST NOTIFICAÇÃO --- */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+    opacity: 0;
+    visibility: hidden;
     transition: all 0.3s ease;
+    z-index: 10000;
 }
 
-.btn-excel-estilo:hover {
-    background-color: #145a32;
-    transform: translateY(-2px);
+.toast-container.mostrar {
+    opacity: 1;
+    visibility: visible;
 }
 
-/* Garantir que o botão de imprimir também esteja visível */
-.btn-imprimir-estilo {
-    background-color: #2c343a;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.btn-filtro {
-    padding: 8px 16px;
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    background: white;
-    cursor: pointer;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-    transition: var(--transition);
-}
-
-.btn-filtro:hover {
-    background-color: var(--cor-primaria);
-    color: white;
-    border-color: var(--cor-primaria);
-}
-
-.btn-todos {
-    background-color: #eee;
-}
-
-/* Estilo para quando o filtro estiver ativo */
-.btn-filtro.ativo {
-    background-color: var(--cor-dark);
-    color: white;
-}
-
-/* --- RESPONSIVIDADE --- */
+/* --- MEDIA QUERIES (TELA) --- */
 @media (max-width: 900px) {
-    .container-principal {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-    }
-
-    .logo {
-        width: 60px;
-        margin-bottom: 0;
-    }
+    .container-principal { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; flex-direction: row; }
+    .logo { width: 60px; margin-bottom: 0; }
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: white;
-}
-
-th,
-td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-}
-
-th {
-    background-color: var(--cor-dark);
-    color: white;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* No seu arquivo excel.css */
-
-.dashboard {
-    flex: 1;
-    /* Garante que ele ocupe o resto do espaço disponível */
-    padding: 30px;
-    background-color: #f0f2f5;
-    overflow-y: auto;
-    /* REMOVA qualquer margin-left que tenha colocado aqui */
-}
-
-.container-principal {
-    display: flex;
-    flex: 1;
-    width: 100%;
-    /* Garante que o container ocupe a largura total */
-    height: calc(100vh - 80px);
-    /* Ajusta a altura descontando o cabeçalho se necessário */
-    overflow: hidden;
-}
-
-/* ... seus estilos normais de tela continuam aqui ... */
-
-/* --- ESTILOS PARA IMPRESSÃO ORIGINAIS --- */
+/* --- IMPRESSÃO (ESTILOS FINAIS) --- */
 @media print {
 
     .cabecalho,
@@ -470,39 +396,6 @@ tr:nth-child(even) {
 
 }
 
-/* Estilo do Toast (igual ao de pneus) */
-.toast-container {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    border-left: 4px solid #28a745;
-    z-index: 9999;
-}
-
-.toast-container.show {
-    opacity: 1;
-}
-
-/* Estilo do botão de copiar na tabela */
-.btn-copiar {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.btn-copiar img {
-    width: 18px;
-}
-
-/* REGRA CRUCIAL: Esconder os botões e o toast na impressão */
 @media print {
 
     .btn-copiar,
@@ -511,60 +404,6 @@ tr:nth-child(even) {
     }
 }
 
-/* ============================================================
-   DESIGN DO BOTAO COPIAR (REPLICADO DE PNEUS)
-   ============================================================ */
-
-/* Container da célula para manter a grade da tabela intacta */
-.coluna-codigo-copy {
-    padding: 0 !important;
-    /* Remove padding da TD para a div interna ocupar tudo */
-}
-
-/* Div interna que faz o alinhamento flex na tela */
-.celula-codigo-conteudo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    /* Padding real da célula aqui */
-    box-sizing: border-box;
-}
-
-/* Link do código (se houver) */
-.celula-codigo-conteudo span {
-    color: #2c343a;
-    font-weight: bold;
-    white-space: nowrap;
-}
-
-/* O Botão - Design exato de pneus */
-.btn-copiar-conferencia {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #888;
-    /* Cor cinza padrão */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    padding: 5px;
-    border-radius: 4px;
-    margin-left: 5px;
-}
-
-/* Hover - Cor primária (vermelha) */
-.btn-copiar-conferencia:hover {
-    color: #e81d1d;
-    /* var(--cor-primaria) da Nexus */
-    background-color: #f8f8f8;
-    transform: scale(1.1);
-}
-
-/* --- CORREÇÃO PARA IMPRESSÃO --- */
 @media print {
 
     /* 1. Esconde o botão e o toast */
@@ -582,53 +421,4 @@ tr:nth-child(even) {
     .celula-codigo-conteudo span {
         display: inline !important;
     }
-}
-
-/* Botão em estado normal */
-.btn-copiar-conferencia {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #888; /* Cinza padrão */
-    display: inline-flex;
-    align-items: center;
-    transition: all 0.2s ease;
-}
-
-/* Efeito ao passar o mouse */
-.btn-copiar-conferencia:hover {
-    color: #e31d1a; /* Vermelho Nexus */
-}
-
-/* ESTADO COPIADO (O que você pediu: Verde por 2 segundos) */
-.btn-copiar-conferencia.copiado {
-    color: #28a745 !important; /* Verde sucesso */
-    transform: scale(1.2);
-}
-
-/* Garante que o SVG mude de cor junto com o botão */
-.btn-copiar-conferencia svg {
-    stroke: currentColor;
-}
-
-/* Ajuste do Toast para garantir que ele apareça (Baseado no seu CSS de pneus) */
-.toast-container {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    border-left: 4px solid #28a745;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 10000;
-}
-
-.toast-container.mostrar {
-    opacity: 1;
-    visibility: visible;
 }
