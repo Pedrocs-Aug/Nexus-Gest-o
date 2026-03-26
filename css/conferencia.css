@@ -323,7 +323,7 @@ tr:hover { background-color: #f1f1f1; }
         padding: 0 4px !important;
         font-size: 8pt !important; /* Padronizado conforme sua última regra */
         line-height: 0.01 !important;
-        height: 18pt !important;
+        height: 15pt !important;
         white-space: nowrap !important;
         overflow: hidden !important;
     }
