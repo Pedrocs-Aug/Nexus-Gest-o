@@ -132,3 +132,11 @@ body {
     0%, 100% { background-position: 0% 0%; }
     50% { background-position: 0% 70%; }
 }
+
+/* styles.css */
+.search-container-dashboard input:focus {
+    outline: none;
+    border-color: var(--cor-primaria) !important;
+    box-shadow: 0 0 8px rgba(232, 29, 29, 0.2);
+    transition: var(--transition);
+}

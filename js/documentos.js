@@ -48,3 +48,4 @@ window.onclick = (event) => {
 btnImprimir.onclick = () => {
     window.print();
 };
+
