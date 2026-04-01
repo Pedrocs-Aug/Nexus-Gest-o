@@ -304,6 +304,17 @@ tr:hover {
     }
 }
 
+/* Estilo para linha conferida (clicada) */
+tr.linha-conferida {
+    background-color: #d4edda !important; /* Verde claro */
+    transition: background-color 0.3s ease;
+}
+
+/* Garante que o hover não sobreponha a cor de conferido */
+tr.linha-conferida:hover {
+    background-color: #c3e6cb !important;
+}
+
 /* --- IMPRESSÃO (ESTILOS FINAIS) --- */
 @media print {
 

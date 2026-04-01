@@ -181,16 +181,25 @@ function copiarTexto(texto, elemento) {
     if (!texto || texto === "undefined") return;
 
     navigator.clipboard.writeText(texto).then(() => {
-        // 1. Lógica do Toast (Alerta "Copiado")
+        // 1. Lógica do Toast
         const toast = document.getElementById('toast-container');
         if (toast) {
-            toast.classList.add('mostrar'); // Usa 'mostrar' conforme seu CSS de pneus
+            toast.classList.add('mostrar');
             setTimeout(() => toast.classList.remove('mostrar'), 2000);
         }
 
-        // 2. Lógica Visual do Botão (Ficar verde)
+        // 2. Lógica Visual do Botão
         if (elemento) {
-            elemento.classList.add('copiado'); // Adiciona a classe que define a cor verde
+            elemento.classList.add('copiado');
+            
+            // --- NOVA LÓGICA: Pintar a linha ---
+            // Busca o elemento 'tr' mais próximo do botão clicado
+            const linha = elemento.closest('tr');
+            if (linha) {
+                linha.classList.add('linha-conferida');
+            }
+            // -----------------------------------
+
             setTimeout(() => {
                 elemento.classList.remove('copiado');
             }, 1000);
