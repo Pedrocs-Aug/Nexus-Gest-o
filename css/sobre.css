@@ -104,3 +104,9 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+@media (min-width: 851px) {
+    .dashboard {
+        margin-left: 150px;
+    }
+}
