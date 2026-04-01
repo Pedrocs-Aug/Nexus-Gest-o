@@ -28,7 +28,8 @@ body {
 .container-principal {
     display: flex;
     flex: 1;
-    height: calc(100vh - 80px); /* Ajuste considerando o cabeçalho */
+    height: calc(100vh - 80px);
+    /* Ajuste considerando o cabeçalho */
     width: 100%;
     overflow: hidden;
 }
@@ -125,7 +126,9 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-#input-excel { display: none; }
+#input-excel {
+    display: none;
+}
 
 .btn-excel-estilo {
     background-color: #1d6f42;
@@ -154,7 +157,8 @@ body {
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    display: none; /* Mostrado via JS */
+    display: none;
+    /* Mostrado via JS */
 }
 
 /* --- FILTROS RÁPIDOS --- */
@@ -169,13 +173,16 @@ body {
     transition: var(--transition);
 }
 
-.btn-filtro:hover, .btn-filtro.ativo {
+.btn-filtro:hover,
+.btn-filtro.ativo {
     background-color: var(--cor-primaria);
     color: white;
     border-color: var(--cor-primaria);
 }
 
-.btn-todos { background-color: #eee; }
+.btn-todos {
+    background-color: #eee;
+}
 
 /* --- TABELA --- */
 .table-container {
@@ -204,11 +211,18 @@ td {
     border-bottom: 1px solid var(--border-color);
 }
 
-tr:nth-child(even) { background-color: #f2f2f2; }
-tr:hover { background-color: #f1f1f1; }
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
 
 /* --- DESIGN BOTÃO COPIAR (REPLICADO PNEUS) --- */
-.coluna-codigo-copy { padding: 0 !important; }
+.coluna-codigo-copy {
+    padding: 0 !important;
+}
 
 .celula-codigo-conteudo {
     display: flex;
@@ -220,8 +234,8 @@ tr:hover { background-color: #f1f1f1; }
 }
 
 .celula-codigo-conteudo span {
-    color: #2c343a;
-    font-weight: bold;
+    olor: #2c343a;
+    font-weight: inherit;
     white-space: nowrap;
 }
 
@@ -237,12 +251,18 @@ tr:hover { background-color: #f1f1f1; }
     border-radius: 4px;
 }
 
-.btn-copiar-conferencia:hover { color: #e31d1a; }
-.btn-copiar-conferencia.copiado { 
-    color: #28a745 !important; 
-    transform: scale(1.2); 
+.btn-copiar-conferencia:hover {
+    color: #e31d1a;
 }
-.btn-copiar-conferencia svg { stroke: currentColor; }
+
+.btn-copiar-conferencia.copiado {
+    color: #28a745 !important;
+    transform: scale(1.2);
+}
+
+.btn-copiar-conferencia svg {
+    stroke: currentColor;
+}
 
 /* --- TOAST NOTIFICAÇÃO --- */
 .toast-container {
@@ -268,13 +288,25 @@ tr:hover { background-color: #f1f1f1; }
 
 /* --- MEDIA QUERIES (TELA) --- */
 @media (max-width: 900px) {
-    .container-principal { flex-direction: column; }
-    .sidebar { width: 100%; height: auto; flex-direction: row; }
-    .logo { width: 60px; margin-bottom: 0; }
+    .container-principal {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+    }
+
+    .logo {
+        width: 60px;
+        margin-bottom: 0;
+    }
 }
 
 /* --- IMPRESSÃO (ESTILOS FINAIS) --- */
 @media print {
+
     /* 1. ESCONDER ELEMENTOS INTERNOS E INTERFACE */
     .cabecalho,
     .sidebar,
@@ -298,7 +330,8 @@ tr:hover { background-color: #f1f1f1; }
         margin: 0 !important;
         padding: 0 !important;
         background-color: white !important;
-        background-image: none !important; /* Remove gradientes/cores de fundo */
+        background-image: none !important;
+        /* Remove gradientes/cores de fundo */
     }
 
     .dashboard {
@@ -318,10 +351,12 @@ tr:hover { background-color: #f1f1f1; }
         table-layout: fixed !important;
     }
 
-    th, td {
+    th,
+    td {
         border: 1px solid #000 !important;
         padding: 0 4px !important;
-        font-size: 8pt !important; /* Padronizado conforme sua última regra */
+        font-size: 8pt !important;
+        /* Padronizado conforme sua última regra */
         line-height: 0.01 !important;
         height: 15pt !important;
         white-space: nowrap !important;
@@ -341,17 +376,39 @@ tr:hover { background-color: #f1f1f1; }
     }
 
     /* 4. AJUSTE DE LARGURA DAS COLUNAS */
-    th:nth-child(1) { width: 5%; text-align: center; }
-    th:nth-child(2) { width: 15%; }
-    th:nth-child(3) { width: 15%; }
-    th:nth-child(4) { width: 35%; }
-    th:nth-child(5) { width: 10%; }
-    th:nth-child(6) { width: 10%; }
-    th:nth-child(7) { width: 10%; }
+    th:nth-child(1) {
+        width: 5%;
+        text-align: center;
+    }
+
+    th:nth-child(2) {
+        width: 15%;
+    }
+
+    th:nth-child(3) {
+        width: 15%;
+    }
+
+    th:nth-child(4) {
+        width: 35%;
+    }
+
+    th:nth-child(5) {
+        width: 10%;
+    }
+
+    th:nth-child(6) {
+        width: 10%;
+    }
+
+    th:nth-child(7) {
+        width: 10%;
+    }
 
     /* 5. CORREÇÃO DA CÉLULA DE CÓDIGO (BOTÃO COPIAR) */
     .celula-codigo-conteudo {
-        display: block !important; /* Remove o flexbox */
+        display: block !important;
+        /* Remove o flexbox */
     }
 
     .celula-codigo-conteudo span {
