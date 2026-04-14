@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nexus | Proding</title>
+
+    <link rel="icon" type="image/png" href="../img/">
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/proding.css">
+</head>
+
+<body>
+    
+    <header class="cabecalho">
+        <h1>NEXUS</h1>
+        <p>gestão</p>
+    </header>
+
+    <main class="container-principal">
+        <nav class="sidebar">
+            <a href="../index.html">
+                <img src="../img/img-menus/nexus_logo.png" alt="Nexus Logo" class="logo">
+            </a>
+            <ul class="menu">
+                <li><a href="../index.html" class="btn-nav">Início</a></li>
+                <li><a href="../html/sobre.html" class="btn-nav">Sobre</a></li>
+                <li><a href="#" class="btn-nav">Serviços</a></li>
+                <li><a href="../html/contato.html" class="btn-nav">Contato</a></li>
+            </ul>
+            <footer class="rodape-sidebar">
+                <p>&copy; 2026 Nexus Gestão.</p>
+                <p>Todos os direitos reservados.</p>
+                <p>Desenvolvido por Pedro Augusto</p>
+            </footer>
+        </nav>
+
+        <section class="dashboard">
+            <div class="upload-section">
+                <h2>Relatório RTO001 (Monitoramento de Preço)</h2>
+                <div class="botoes-container">
+                    <label for="input-proding" class="btn-importar btn-proding">
+                        <span>🚀 Processar PRODING</span>
+                        <input type="file" id="input-proding" accept=".xls,.xlsx">
+                    </label>
+                </div>
+            </div>
+
+            <div id="status-card" class="status-card">
+                <h3>Resultado da Automação</h3>
+                <p id="detalhes-status"></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="../js/proding-db.js"></script>
+    <script src="../js/proding-engine.js"></script>
+</body>
+
+</html>
