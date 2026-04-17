@@ -26,7 +26,7 @@ document.getElementById('input-proding').addEventListener('change', function (e)
             // Regra: Se o valor for menor que -0,2 (ex: -0,3), ignora
             if (valorDesconto < -0.2) {
                 resumo.ignorado_valor++;
-                return; 
+                return;
             }
 
             // 2. Critérios de Justificativa
@@ -38,7 +38,7 @@ document.getElementById('input-proding').addEventListener('change', function (e)
             // Regra Concessionária (Prioridade)
             if (typeof CLIENTES_CONCESSIONARIA !== 'undefined' && CLIENTES_CONCESSIONARIA.includes(nomeCliente)) {
                 justificativa = "PEÇA VENDIDA PARA CONCESSIONARIA";
-            } 
+            }
             // Regra Banco de Dados (Código)
             else if (DATABASE_PRODING[codigo]) {
                 justificativa = DATABASE_PRODING[codigo];
@@ -48,12 +48,14 @@ document.getElementById('input-proding').addEventListener('change', function (e)
             if (justificativa) {
                 const ref = XLSX.utils.encode_cell({ r: index, c: 42 }); // Coluna AQ
                 worksheet[ref] = { v: justificativa, t: 's' };
-                
+
                 // Contabiliza a frase específica
                 resumo.contagemPorJustificativa[justificativa] = (resumo.contagemPorJustificativa[justificativa] || 0) + 1;
                 resumo.totalGeral++;
             }
         });
+
+        delete worksheet['!autofilter'];
 
         // Finalização e Download
         XLSX.writeFile(workbook, `PRODING_FINAL_${new Date().getTime()}.xlsx`, { bookType: 'xlsx', type: 'binary' });
@@ -69,7 +71,7 @@ function exibirResumoPorJustificativa(resumo) {
 
     // Gerar HTML da lista agrupada
     let listaHTML = '<ul style="list-style: none; padding: 0; margin-top: 10px;">';
-    
+
     for (const [frase, qtd] of Object.entries(resumo.contagemPorJustificativa)) {
         listaHTML += `
             <li style="margin-bottom: 8px;">
