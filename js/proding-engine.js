@@ -13,9 +13,9 @@ document.getElementById('input-proding').addEventListener('change', function (e)
         let contador = 0;
 
         matriz.forEach((linha, index) => {
-            if (index < 12) return; // Novo padrão do RTO001 (Março 2026)
+            if (index < 12) return; // Novo padrão do RTO001
 
-            // Ajustado para ler a coluna D e converter para maiúsculo
+            // Ler a coluna D e converter para maiúsculo
             const codigo = String(linha[3] || "").trim().toUpperCase();
 
             if (DATABASE_PRODING[codigo]) {
