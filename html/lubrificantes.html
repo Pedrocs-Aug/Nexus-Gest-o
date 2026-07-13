@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Gestão | Catálogo de Pneus</title>
+    <link rel="icon" type="image/png" href="../img/nexus_logo.png">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/pneus.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+    <div id="toast-container" class="toast-container">Copiado</div>
+    <header class="cabecalho">
+        <h1>NEXUS</h1>
+        <p>gestão</p>
+    </header>
+
+    <main class="container-principal">
+        <nav class="sidebar">
+            <a href="../index.html">
+                <img src="../img/img-menus/nexus_logo.png" alt="Nexus Logo" class="logo">
+            </a>
+            <ul class="menu">
+                <li><a href="../index.html" class="btn-nav">Início</a></li>
+                <li><a href="../html/sobre.html" class="btn-nav">Sobre</a></li>
+                <li><a href="#" class="btn-nav">Serviços</a></li>
+                <li><a href="../html/contato.html" class="btn-nav">Contato</a></li>
+            </ul>
+            <footer class="rodape-sidebar">
+                <p>&copy; 2026 Nexus Gestão.</p>
+                <p>Todos os direitos reservados.</p>
+                <p>Desenvolvido por Pedro Augusto</p>
+            </footer>
+        </nav>
+
+        <section class="dashboard">
+            <div class="apresentacao-tabela">
+                <h2 style="color: var(--cor-dark); margin-bottom: 10px;">Catálogo de Pneus</h2>
+                <input type="text" id="inputBusca" class="search-box"
+                    placeholder="Pesquisar por medida, marca ou veículo...">
+            </div>
+
+            <div class="data-table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr class="data-table-title">
+                            <th>Código</th>
+                            <th style="width: 50px;"></th>
+                            <th>Categoria</th>
+                            <th>Medida</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    </thead>
+                    <tbody id="corpoTabela">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <div id="modal-etiqueta" class="modal">
+        <span class="fechar" onclick="fecharModal()">&times;</span>
+        <div class="modal-conteudo">
+            <div id="area-impressao" class="folha-a4">
+            </div>
+            <button class="btn-imprimir" onclick="window.print()">Imprimir Etiqueta</button>
+        </div>
+    </div>
+    <script src="../js/lubrificantes.js"></script>
+</body>
+
+</html>
