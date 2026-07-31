@@ -279,7 +279,7 @@ const dadosPneus = [
     { codigo: '42652 82003', marca: 'PIRELLI', veiculo: 'HILUX', desc: 'PNEU 205R16C 110T S' },
     { codigo: '42652 81020', marca: 'PIRELLI', veiculo: 'COROLLA', desc: 'PNEU 215/50 R17 91V' },
     { codigo: '42652 81025', marca: 'PIRELLI', veiculo: 'COROLLA', desc: 'PNEU 215/50R17 91V P' },
-    { codigo: '42652 81005', marca: 'PIRELLI', veiculo: 'COROLLA', desc: 'PNEU 215/50R17 91V, CINTURATO' },
+    { codigo: '42652 81005', marca: 'PIRELLI', veiculo: 'COROLLA', desc: 'PNEU 215/50R17 91V PIRELLI POWERGY' },
     { codigo: '42652 81015', marca: 'PIRELLI', veiculo: 'COROLLA', desc: 'PNEU 215/50R17 95W C' },
     { codigo: '42652 86006', marca: 'PIRELLI', veiculo: 'ESPORTIVO', desc: 'PNEU 225/40ZR18 92Y' },
     { codigo: '42652 86011', marca: 'PIRELLI', veiculo: 'COROLLA', desc: 'PNEU 225/45R17 91Y PIRELLI POWERGY' },
