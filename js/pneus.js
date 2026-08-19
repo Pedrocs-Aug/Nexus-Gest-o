@@ -316,7 +316,6 @@ const dadosPneus = [
     { codigo: '42652 82001', marca: 'PIRELLI', veiculo: 'HILUX', desc: 'PNEU P265/70 R15 112' },
     { codigo: '42652 82004', marca: 'PIRELLI', veiculo: 'HILUX', desc: 'PNEU P265/70R16 112H' },
     { codigo: '42652 83003', marca: 'PIRELLI', veiculo: 'HILUX', desc: 'PNEU P265/70R17 113T' },
-    { codigo: '42652 80124', marca: 'PIRELLI', veiculo: 'COROLLA / CAMRY', desc: 'PNEU PIRELLI 215/55R' },
     { codigo: '42652 80123', marca: 'PIRELLI', veiculo: 'COROLLA', desc: 'PNEU PIRELLI 215/60R' },
 
     // --- TIRE (Itens 62 a 70) ---
