@@ -475,8 +475,8 @@ const dadosPneus = [
     { codigo: '4265A 76001', marca: 'TOYOTA', veiculo: 'ESTEPE', desc: 'PNEU T125/70D17 (STE' },
     { codigo: '4265A 74001', marca: 'TOYOTA', veiculo: 'ESTEPE', desc: 'PNEU T165/80R17 (STE' },
     { codigo: '4265A 710T8', marca: 'TOYOTA', veiculo: 'ESTEPE', desc: 'TIRE T155/70D17 110M' },
-    { codigo: '4265280124', marca: 'PIRELLI', veiculo: '', desc: 'PNEU PIRELLI 215/55R18 95V SCORPN (KS)' },
-    { codigo: '4265250000', marca: 'DUNLOP', veiculo: '', desc: 'PNEU DUNLOP 215/55R18 95V SP SPORT MAXX 060' }
+    { codigo: '42652 80124', marca: 'PIRELLI', veiculo: 'YARIS CROSS', desc: 'PNEU PIRELLI 215/55R18 95V SCORPN (KS)' },
+    { codigo: '42652 50000', marca: 'DUNLOP', veiculo: 'YARIS CROSS', desc: 'PNEU DUNLOP 215/55R18 95V SP SPORT MAXX 060' }
 ];
 
 /**
